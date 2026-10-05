@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio | Creative Pro Remodeling LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="has-fixed-nav">
+
+<nav class="nav-solid">
+  <a class="logo" href="index.html"><i>cp</i><b>CREATIVEPRO</b></a>
+  <a class="l" href="index.html">About ▾</a>
+  <a class="l" href="index.html">Services ▾</a>
+  <a class="l" href="index.html">Featured Projects</a>
+  <a class="l active" href="portfolio.html">Portfolio</a>
+  <a class="l cta" href="estimate.html">Request an Estimate</a>
+</nav>
+
+<main>
+  <div class="portfolio-grid">
+    <div class="portfolio-item reveal-left" data-category="kitchens">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/09/Untitled-design-96-e1721845778419.webp" alt="Kitchens" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Kitchens</div>
+    </div>
+
+    <div class="portfolio-item reveal-right" data-category="basements">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/03/DSC00767.jpg" alt="Basements" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Basements</div>
+    </div>
+
+    <div class="portfolio-item reveal-left" data-category="bathrooms">
+      <img src="https://designproremodeling.com/wp-content/uploads/2025/05/AV_250213_2134725-edit-2-1.jpg" alt="Bathrooms" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Bathrooms</div>
+    </div>
+
+    <div class="portfolio-item reveal-right" data-category="flooring">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/07/Flooring-e1785249613410.jpg" alt="Flooring" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Flooring</div>
+    </div>
+
+    <div class="portfolio-item reveal-left" data-category="fireplaces">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/05/DSC_6447-Edit.jpg" alt="Fireplaces" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Fireplaces</div>
+    </div>
+
+    <div class="portfolio-item reveal-right" data-category="additions">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/04/DSC04423.jpg" alt="Additions" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Additions</div>
+    </div>
+
+    <div class="portfolio-item reveal-left" data-category="porches">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/07/9312-hamilton-dr-fairfax-va-35-e1785250092223.jpg" alt="Porches & Decks" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Porches &amp; Decks</div>
+    </div>
+
+    <div class="portfolio-item reveal-right" data-category="exteriors">
+      <img src="https://designproremodeling.com/wp-content/uploads/2026/04/80-web-or-mls-DSC08539.jpg" alt="Exteriors" loading="lazy">
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-title">Exteriors</div>
+    </div>
+  </div>
+</main>
+
+<!-- Lightbox Modal for Category Gallery Popups -->
+<div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+  <button class="lightbox-close" aria-label="Close Gallery">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#10094;</button>
+  <div class="lightbox-body">
+    <img id="lightbox-img" src="" alt="Portfolio Image">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+    <div id="lightbox-counter" class="lightbox-counter"></div>
+  </div>
+  <button class="lightbox-nav lightbox-next" aria-label="Next image">&#10095;</button>
+</div>
+
+<div style="text-align:center;margin:30px 0 70px" class="reveal-up">
+  <a class="btn" style="padding:13px 36px;font-size:12px" href="estimate.html">Request an Estimate</a>
+</div>
+
+<footer class="reveal-fade">
+  <div class="lg">cp</div>
+  <small>© 2026 Creative Pro Remodeling LLC</small>
+  <div class="soc"><i style="background:#000">IG</i><i style="background:#3b5998">f</i><i style="background:#6b6b6b">G</i></div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
