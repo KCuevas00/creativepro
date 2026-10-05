@@ -16,6 +16,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(60px + env(safe-area-inset-top, 0px));
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 *, *::before, *::after {
@@ -30,6 +32,13 @@ body {
   font-size: 14px;
   line-height: 1.7;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+main, section, header, footer {
+  overflow-x: clip;
 }
 
 a {
@@ -57,7 +66,7 @@ nav {
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1050;
   height: 60px;
   display: flex;
   align-items: center;
@@ -208,14 +217,14 @@ body.has-fixed-nav {
 .hero {
   position: relative;
   min-height: 100vh;
-  min-height: 680px;
+  min-height: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
-  padding: 110px 24px 70px;
+  padding: 80px 20px 40px;
   overflow: hidden;
   background-color: #0b1120;
 }
@@ -234,107 +243,59 @@ body.has-fixed-nav {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.85);
+  filter: none; /* Completely natural, untinted video */
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(11, 17, 32, 0.45) 0%, rgba(11, 17, 32, 0.72) 100%);
-  z-index: 1;
+  display: none !important; /* Tint completely removed */
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.hero .tag {
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
-}
-
-.hero .tag-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--green);
+  padding: 0 20px;
 }
 
 .hero h1 {
   position: relative;
-  margin: 0 0 16px;
-  font-size: clamp(32px, 5.5vw, 56px);
-  font-weight: 700;
+  margin: 0 0 28px;
+  font-size: clamp(28px, 4.8vw, 50px);
+  font-weight: 500;
   text-transform: uppercase;
-  line-height: 1.2;
-  max-width: 920px;
-  padding: 0 10px;
-  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.65);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  line-height: 1.28;
+  max-width: 860px;
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.85);
 }
 
-.hero-sub {
-  font-size: clamp(15px, 2.2vw, 19px);
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  color: #f1f5f9;
-  max-width: 720px;
-  margin: 0 0 32px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+.hero-btn {
+  display: inline-block;
+  background: #ffffff !important;
+  color: var(--navy) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  padding: 12px 28px !important;
+  border-radius: 2px !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.25s ease !important;
+  text-decoration: none !important;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.hero-phone {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.hero-phone a {
-  color: #fff;
-  opacity: 0.95;
-  transition: color 0.2s ease, background 0.2s ease;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-phone a:hover {
-  background: rgba(141, 198, 63, 0.25);
-  color: var(--green);
-  border-color: var(--green);
+.hero-btn:hover {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border-color: var(--navy) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45) !important;
 }
 
 /* Buttons */
@@ -523,9 +484,31 @@ h2 {
 .testi .ar {
   position: absolute;
   top: 50%;
-  font-size: 24px;
+  font-size: 26px;
   transform: translateY(-50%);
   opacity: 0.6;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.testi .ar:hover {
+  opacity: 1;
+}
+
+.testi .ar.ar-prev {
+  left: 24px;
+}
+
+.testi .ar.ar-next {
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .testi .ar {
+    display: none !important;
+  }
 }
 
 /* Gallery */
@@ -770,13 +753,14 @@ footer small {
     border: none;
     cursor: pointer;
     padding: 8px;
-    z-index: 1001;
+    z-index: 1060 !important; /* Above nav (1050) and backdrop (1040) - never blurred */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
     width: 42px;
     height: 42px;
+    transition: opacity 0.2s ease;
   }
 
   .mobile-toggle span {
@@ -785,7 +769,19 @@ footer small {
     height: 2px;
     background-color: var(--navy);
     border-radius: 2px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.2s ease;
+  }
+
+  /* On transparent hero nav, make hamburger bars white with subtle shadow so it's clearly visible over video */
+  nav:not(.scrolled):not(.nav-solid) .mobile-toggle span {
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  nav.scrolled .mobile-toggle span,
+  nav.nav-solid .mobile-toggle span {
+    background-color: var(--navy);
+    box-shadow: none;
   }
 
   .mobile-toggle.active span:nth-child(1) {
@@ -800,22 +796,30 @@ footer small {
     transform: translateY(-7px) rotate(-45deg);
   }
 
+  /* When drawer is open, hide the main navbar hamburger so there is only ONE clean X on the drawer header */
+  body.nav-drawer-open .mobile-toggle {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+
   /* Fullscreen Frosted Backdrop */
   .nav-backdrop {
     display: block !important;
     position: fixed !important;
+    inset: 0 !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    width: 100vw !important;
-    width: 100dvw !important;
-    height: 100vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
     height: 100dvh !important;
     background-color: rgba(11, 17, 32, 0.65) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
-    z-index: 1040 !important;
+    z-index: 1040 !important; /* Behind nav at 1050 so navbar & hamburger are never blurred */
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
@@ -837,10 +841,11 @@ footer small {
     bottom: 0 !important;
     left: auto !important;
     width: min(86vw, 360px) !important;
+    max-width: 86vw !important;
     height: 100vh !important;
     height: 100dvh !important;
     background-color: #ffffff !important;
-    z-index: 1050 !important;
+    z-index: 1055 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
@@ -849,8 +854,9 @@ footer small {
     border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
     transform: translateX(105%) !important;
     opacity: 1 !important;
-    pointer-events: none;
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    visibility: hidden !important; /* CRITICAL: prevents horizontal scrollbar / white bar on mobile */
+    pointer-events: none !important;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     overscroll-behavior: contain !important;
@@ -859,6 +865,7 @@ footer small {
 
   .nav-links.active {
     transform: translateX(0) !important;
+    visibility: visible !important;
     pointer-events: auto !important;
   }
 
