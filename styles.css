@@ -1893,22 +1893,13 @@ footer small {
   display: inline-block;
 }
 
-/* 2. Revolving Conic Glow Border on Primary CTAs */
-@keyframes rotateBorderGlow {
-  from {
-    transform: rotate(0deg);
+/* 2. Elegant Metallic Light Sheen on Primary CTAs */
+@keyframes buttonShimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulseGlowShadow {
-  0%, 100% {
-    box-shadow: 0 4px 18px rgba(217, 119, 6, 0.4), 0 0 24px rgba(245, 158, 11, 0.2);
-  }
-  50% {
-    box-shadow: 0 6px 28px rgba(245, 158, 11, 0.65), 0 0 40px rgba(217, 119, 6, 0.35);
+  20%, 100% {
+    transform: translateX(250%) skewX(-20deg);
   }
 }
 
@@ -1918,7 +1909,8 @@ footer small {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  animation: pulseGlowShadow 4s ease-in-out infinite;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
 .nav-cta-btn::before,
@@ -1926,34 +1918,28 @@ footer small {
 .btn:not(.o)::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    transparent 0deg,
-    transparent 140deg,
-    rgba(255, 255, 255, 0.95) 180deg,
-    rgba(251, 191, 36, 0.9) 210deg,
-    rgba(217, 119, 6, 0.7) 240deg,
-    transparent 280deg,
-    transparent 360deg
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 100%
   );
-  animation: rotateBorderGlow 4s linear infinite;
-  z-index: -2;
-  opacity: 0.85;
+  transform: translateX(-150%) skewX(-20deg);
+  animation: buttonShimmer 5s ease-in-out infinite;
   pointer-events: none;
+  z-index: 2;
 }
 
-.nav-cta-btn::after,
-.hero-btn::after,
-.btn:not(.o)::after {
-  content: "";
-  position: absolute;
-  inset: 1.5px;
-  background: inherit;
-  border-radius: inherit;
-  z-index: -1;
+.nav-cta-btn:hover,
+.hero-btn:hover,
+.btn:not(.o)::hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55);
+  filter: brightness(1.08);
 }
 
 /* 3. Mouse-Tracking Spotlight Luminescence (Linear / Apple AI Card Glow) */
