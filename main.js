@@ -108,6 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 1c. Ensure mobile & desktop autoplay videos play cleanly
+  document.querySelectorAll('video[autoplay]').forEach((v) => {
+    v.muted = true;
+    const playPromise = v.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Fallback: poster image displays if low-power mode or browser policy blocks autoplay
+      });
+    }
+  });
+
   // 2. Scroll Reveal Animations (fade-in, slide from left/right, scale)
   const revealElements = document.querySelectorAll(
     '.reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade'
