@@ -324,4 +324,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // 4. Interactive Spotlight Cursor Luminescence (Apple AI / Linear style)
+  const spotlightCards = document.querySelectorAll('.gallery-card, .gal-item, .portfolio-item');
+  if (spotlightCards.length) {
+    const updateSpotlight = (e) => {
+      const card = e.currentTarget;
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+      const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    };
+
+    spotlightCards.forEach((card) => {
+      card.addEventListener('pointermove', updateSpotlight, { passive: true });
+    });
+  }
 });
