@@ -108,14 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 1c. Ensure mobile & desktop autoplay videos play cleanly
-  document.querySelectorAll('video[autoplay]').forEach((v) => {
+  // 1c. Ensure all videos on the site are strictly muted
+  document.querySelectorAll('video').forEach((v) => {
     v.muted = true;
-    const playPromise = v.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Fallback: poster image displays if low-power mode or browser policy blocks autoplay
-      });
+    v.volume = 0;
+    if (v.hasAttribute('autoplay')) {
+      const playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
     }
   });
 
@@ -164,13 +165,18 @@ document.addEventListener('DOMContentLoaded', () => {
       lightboxVideo.id = 'lightbox-video';
       lightboxVideo.controls = true;
       lightboxVideo.playsInline = true;
+      lightboxVideo.muted = true;
+      lightboxVideo.volume = 0;
       lightboxVideo.style.display = 'none';
       if (lightboxImg && lightboxImg.parentNode) {
         lightboxImg.parentNode.insertBefore(lightboxVideo, lightboxImg.nextSibling);
       }
+    } else {
+      lightboxVideo.muted = true;
+      lightboxVideo.volume = 0;
     }
 
-    // Real client project galleries by category
+    // Real client project galleries by broad category
     const galleryData = {
       kitchens: [
         {
@@ -222,49 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
           video: 'videos/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.mp4',
           poster: 'photos/thumbs/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.jpg',
           title: 'Modern Frameless Glass & Custom Tile Surround'
-        }
-      ],
-      basements: [
-        {
-          video: 'videos/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.mp4',
-          poster: 'photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg',
-          title: 'Finished Basement Living Suite with Luxury Flooring & Brick Accent'
-        },
-        {
-          video: 'videos/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.mp4',
-          poster: 'photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg',
-          title: 'Custom Tile Flooring & Basement Entryway'
-        }
-      ],
-      flooring: [
-        {
-          video: 'videos/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.mp4',
-          poster: 'photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg',
-          title: 'Wide-Plank Luxury Wood Flooring & Trim Work'
-        },
-        {
-          video: 'videos/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.mp4',
-          poster: 'photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg',
-          title: 'Polished Ceramic & Natural Stone Flooring'
-        }
-      ],
-      additions: [
-        {
-          video: 'videos/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.mp4',
-          poster: 'photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg',
-          title: 'Residential Structural Framing & Exterior Addition'
-        },
-        {
-          video: 'videos/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.mp4',
-          poster: 'photos/thumbs/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.jpg',
-          title: 'Exterior Remodel & Backyard Home Extension'
-        }
-      ],
-      custom: [
-        {
-          video: 'videos/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.mp4',
-          poster: 'photos/thumbs/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.jpg',
-          title: 'Custom LED Backlit Mirror & Floating Vanity'
         },
         {
           video: 'videos/att.UEALgeMmISxrldGzCUQckqRfF_3mm2YDU3OMp9d1Nq8.mp4',
@@ -277,27 +240,54 @@ document.addEventListener('DOMContentLoaded', () => {
           title: 'Pebble Mosaic Shower Floor with Frameless Glass'
         }
       ],
-      remodeling: [
+      interiors: [
         {
-          video: 'videos/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.mp4',
-          poster: 'photos/thumbs/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.jpg',
-          title: 'Master Craftsman Interior Renovation & Tile Artistry'
+          video: 'videos/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.mp4',
+          poster: 'photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg',
+          title: 'Finished Living Suite with Luxury Flooring & Trim'
+        },
+        {
+          video: 'videos/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.mp4',
+          poster: 'photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg',
+          title: 'Custom Tile Flooring & Living Entryway'
+        },
+        {
+          video: 'videos/att.2BalRMalskuFu9Mn4uZFyzM6aL0MqPrfYy8mgXWTwhc.mp4',
+          poster: 'photos/thumbs/att.2BalRMalskuFu9Mn4uZFyzM6aL0MqPrfYy8mgXWTwhc.jpg',
+          title: 'Open Concept Interior Renovation & Living Space'
+        },
+        {
+          video: 'videos/att.I6n1MFW-43ozeKTnIQzqdx_wz3deWKS_8Sb8Z-VqA_c.mp4',
+          poster: 'photos/thumbs/att.I6n1MFW-43ozeKTnIQzqdx_wz3deWKS_8Sb8Z-VqA_c.jpg',
+          title: 'Interior Craftsman Details & Finishes'
+        }
+      ],
+      exterior: [
+        {
+          video: 'videos/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.mp4',
+          poster: 'photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg',
+          title: 'Residential Structural Framing & Exterior Addition'
+        },
+        {
+          video: 'videos/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.mp4',
+          poster: 'photos/thumbs/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.jpg',
+          title: 'Exterior Remodel & Backyard Home Extension'
+        }
+      ],
+      other: [
+        {
+          src: 'photos/cpr_banner.png',
+          title: 'Creative Pro Remodeling LLC - Juan Lozano, Master Craftsman'
         },
         {
           video: 'videos/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.mp4',
           poster: 'photos/thumbs/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.jpg',
-          title: 'Modern Bathroom Renovation with Sliding Glass Door'
+          title: 'Custom Modern Bathroom Renovation with Sliding Glass'
         },
         {
           video: 'videos/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.mp4',
           poster: 'photos/thumbs/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.jpg',
           title: 'Frosted Glass Shower Enclosure Installation'
-        }
-      ],
-      branding: [
-        {
-          src: 'photos/cpr_banner.png',
-          title: 'Creative Pro Remodeling LLC - Juan Lozano, Master Craftsman'
         },
         {
           src: 'photos/logo.png',
@@ -328,6 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (lightboxVideo) {
             lightboxVideo.src = item.video;
             if (item.poster) lightboxVideo.poster = item.poster;
+            lightboxVideo.muted = true;
+            lightboxVideo.volume = 0;
             lightboxVideo.style.display = 'block';
             lightboxVideo.style.opacity = '1';
             lightboxVideo.play().catch(() => {});
