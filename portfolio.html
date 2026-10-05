@@ -10,13 +10,39 @@
 <body class="has-fixed-nav">
 
 <nav class="nav-solid">
-  <a class="logo" href="index.html"><i>cp</i><b>CREATIVEPRO</b></a>
-  <a class="l" href="index.html">About ▾</a>
-  <a class="l" href="index.html">Services ▾</a>
-  <a class="l" href="index.html">Featured Projects</a>
-  <a class="l active" href="portfolio.html">Portfolio</a>
-  <a class="l cta" href="estimate.html">Request an Estimate</a>
+  <div class="nav-container">
+    <a class="logo" href="index.html"><i>cp</i><b>CREATIVEPRO</b></a>
+    <div class="nav-links">
+      <a class="l" href="index.html#about">About ▾</a>
+      <a class="l" href="index.html#services">Services ▾</a>
+      <a class="l" href="portfolio.html">Featured Projects</a>
+      <a class="l active" href="portfolio.html">Portfolio</a>
+      <a class="l cta" href="estimate.html">Request an Estimate</a>
+    </div>
+    <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <a class="mobile-nav-link" href="index.html">Home</a>
+    <a class="mobile-nav-link" href="index.html#about">About</a>
+    <a class="mobile-nav-link" href="index.html#services">Services</a>
+    <a class="mobile-nav-link" href="portfolio.html">Featured Projects</a>
+    <a class="mobile-nav-link active" href="portfolio.html">Portfolio</a>
+    <div class="mobile-menu-cta">
+      <a class="btn" href="estimate.html">Request an Estimate</a>
+    </div>
+    <div class="mobile-menu-contact">
+      <a href="tel:5715067079">📞 Call: (571) 506-7079</a>
+    </div>
+  </div>
+</div>
 
 <main>
   <div class="portfolio-grid">

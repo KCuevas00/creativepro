@@ -14,6 +14,47 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
   }
 
+  // 1b. Mobile Hamburger Menu Toggle
+  const hamburgerBtn = document.querySelector('.hamburger-btn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta a');
+
+  if (hamburgerBtn && mobileMenu) {
+    const toggleMenu = (open) => {
+      const isOpen = open !== undefined ? open : !hamburgerBtn.classList.contains('is-active');
+      hamburgerBtn.classList.toggle('is-active', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileMenu.classList.toggle('is-active', isOpen);
+      mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.classList.toggle('menu-open', isOpen);
+      if (nav) {
+        if (isOpen) {
+          nav.classList.add('scrolled');
+        } else if (window.scrollY <= 20 && !nav.classList.contains('nav-solid')) {
+          nav.classList.remove('scrolled');
+        }
+      }
+    };
+
+    hamburgerBtn.addEventListener('click', () => toggleMenu());
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-active')) {
+        toggleMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820 && mobileMenu.classList.contains('is-active')) {
+        toggleMenu(false);
+      }
+    });
+  }
+
   // 2. Scroll Reveal Animations (fade-in, slide from left/right, scale)
   const revealElements = document.querySelectorAll(
     '.reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade'

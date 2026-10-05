@@ -9,9 +9,39 @@
 </head>
 <body>
 <nav>
-  <a class="logo" href="index.html"><i>cp</i><b>CREATIVEPRO</b></a>
-  <a class="l" href="#">About ▾</a><a class="l" href="#">Services ▾</a><a class="l" href="portfolio.html">Featured Projects</a><a class="l" href="portfolio.html">Portfolio</a><a class="l cta" href="estimate.html">Request an Estimate</a>
+  <div class="nav-container">
+    <a class="logo" href="index.html"><i>cp</i><b>CREATIVEPRO</b></a>
+    <div class="nav-links">
+      <a class="l" href="#about">About ▾</a>
+      <a class="l" href="#services">Services ▾</a>
+      <a class="l" href="portfolio.html">Featured Projects</a>
+      <a class="l" href="portfolio.html">Portfolio</a>
+      <a class="l cta" href="estimate.html">Request an Estimate</a>
+    </div>
+    <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <a class="mobile-nav-link active" href="index.html">Home</a>
+    <a class="mobile-nav-link" href="#about">About</a>
+    <a class="mobile-nav-link" href="#services">Services</a>
+    <a class="mobile-nav-link" href="portfolio.html">Featured Projects</a>
+    <a class="mobile-nav-link" href="portfolio.html">Portfolio</a>
+    <div class="mobile-menu-cta">
+      <a class="btn" href="estimate.html">Request an Estimate</a>
+    </div>
+    <div class="mobile-menu-contact">
+      <a href="tel:5715067079">📞 Call: (571) 506-7079</a>
+    </div>
+  </div>
+</div>
 
 <header class="hero">
   <div class="tag reveal-fade">Hero image placeholder</div>
@@ -29,20 +59,20 @@
   <a class="btn reveal-up" href="portfolio.html">View More</a>
 </section>
 
-<section class="split" style="margin-top:50px">
+<section class="split" id="about" style="margin-top:50px">
   <div class="ph reveal-left">Image placeholder</div>
   <div class="txt reveal-right">
     <h2>We promise to treat every home as if it were our own</h2>
     <p>Your satisfaction isn't just our goal, it's our guarantee.</p>
-    <a class="btn" href="#">About Us</a>
+    <a class="btn" href="#about">About Us</a>
   </div>
 </section>
 
-<section class="split rev">
+<section class="split rev" id="services">
   <div class="txt right reveal-left">
     <h2>Simplified Home Remodeling</h2>
     <p>At Creative Pro, our niche is Simplified Home Remodeling. We take the stress out of remodeling by guiding homeowners through a simple, proven 5-step process.</p>
-    <a class="btn" href="#">Our Process</a>
+    <a class="btn" href="estimate.html">Our Process</a>
   </div>
   <div class="ph reveal-right">Image placeholder</div>
 </section>
