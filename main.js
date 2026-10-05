@@ -82,137 +82,162 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Portfolio Category Lightbox / Gallery
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  const portfolioItems = document.querySelectorAll('.portfolio-item, .open-lightbox');
   const lightbox = document.getElementById('lightbox');
 
   if (lightbox && portfolioItems.length > 0) {
-    const lightboxImg = document.getElementById('lightbox-img');
+    let lightboxImg = document.getElementById('lightbox-img');
+    let lightboxVideo = document.getElementById('lightbox-video');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const lightboxCounter = document.getElementById('lightbox-counter');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
 
-    // Galleries mapped by category
+    // Create video element dynamically if missing
+    if (!lightboxVideo) {
+      lightboxVideo = document.createElement('video');
+      lightboxVideo.id = 'lightbox-video';
+      lightboxVideo.controls = true;
+      lightboxVideo.playsInline = true;
+      lightboxVideo.style.display = 'none';
+      if (lightboxImg && lightboxImg.parentNode) {
+        lightboxImg.parentNode.insertBefore(lightboxVideo, lightboxImg.nextSibling);
+      }
+    }
+
+    // Real client project galleries by category
     const galleryData = {
       kitchens: [
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/09/Untitled-design-96-e1721845778419.webp',
-          title: 'Modern Chef Kitchen with Waterfall Island'
+          video: 'videos/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.mp4',
+          poster: 'photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg',
+          title: 'Luxury Kitchen Island & Custom Cabinetry'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/07/20260202-christykosnic-7-1024x683.jpg',
-          title: 'Luxury Kitchen Remodel with Custom Cabinetry'
+          video: 'videos/att.ucdAuTRRYabAZ8vkFyUzYQKstpuCozJaKjcC5Fg2-l0.mp4',
+          poster: 'photos/thumbs/att.ucdAuTRRYabAZ8vkFyUzYQKstpuCozJaKjcC5Fg2-l0.jpg',
+          title: 'Designer Quartz Countertops & Under-Cabinet Lighting'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/05/20250602-christykosnic-29-1024x684.jpg',
-          title: 'Coastal Blue Center Island & Quartz Countertops'
+          video: 'videos/att.8_YWMmqyAIp7lA5w8Ne7JRD0POWvu3PNwK841J3LADA.mp4',
+          poster: 'photos/thumbs/att.8_YWMmqyAIp7lA5w8Ne7JRD0POWvu3PNwK841J3LADA.jpg',
+          title: 'Warm Wood Kitchen Cabinetry & Custom Sink'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/03/DSC00731-1-1024x769.jpg',
-          title: 'Open Concept Kitchen & Statement Pendant Lighting'
-        }
-      ],
-      basements: [
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/03/DSC00767.jpg',
-          title: 'Finished Basement Entertainment Lounge'
-        },
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/03/DSC00773.jpg',
-          title: 'Custom Wet Bar & Lounge Seating'
-        },
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/03/DSC00776.jpg',
-          title: 'Recessed Lighting & Modern Basement Flooring'
+          video: 'videos/att.vfARFXoTnHJfOLqqF8W1_fSoY4aCxrxRsz4XRqmZS-Q.mp4',
+          poster: 'photos/thumbs/att.vfARFXoTnHJfOLqqF8W1_fSoY4aCxrxRsz4XRqmZS-Q.jpg',
+          title: 'Full Custom Island & Cabinet Installation'
         }
       ],
       bathrooms: [
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2025/05/AV_250213_2134725-edit-2-1.jpg',
-          title: 'Spa-Inspired Primary Bathroom with Natural Wood Vanity'
+          src: 'videos/att.970gtKVesR1xjUGCgzqflV2OWC8aKJ6eQjcG_yd52OY.jpg',
+          title: 'Walk-In Shower with Rain Head & Hexagon Mosaic Niche'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/07/IMG_0374.jpg',
-          title: 'Freestanding Soaking Tub & Luxury Tile Flooring'
+          video: 'videos/att.KTTjtNAtQ304b6EBsn0ZfpWx3SeXYvGI1veDeXCvkAE.mp4',
+          poster: 'photos/thumbs/att.KTTjtNAtQ304b6EBsn0ZfpWx3SeXYvGI1veDeXCvkAE.jpg',
+          title: 'Frameless Glass Shower Enclosure with Built-In Bench'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/07/20260414-31.jpg',
-          title: 'Walk-In Shower with Frameless Glass Enclosure'
+          video: 'videos/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.mp4',
+          poster: 'photos/thumbs/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.jpg',
+          title: 'LED Backlit Vanity Mirror & Contemporary Dark Vanity'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/04/ltnichols-32.jpg',
-          title: 'Contemporary Dual Vanity with Brass Fixtures'
+          src: 'videos/att.fWpCm0skN6ss4QCZNMa-juQdOCfMdO2ke7EJ_wlxbS0.jpg',
+          title: 'Designer Glass Corner Enclosure & Custom Tile Floor'
+        },
+        {
+          video: 'videos/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.mp4',
+          poster: 'photos/thumbs/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.jpg',
+          title: 'Contemporary Dual Sconce Vanity with Green Tile Accent'
+        },
+        {
+          video: 'videos/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.mp4',
+          poster: 'photos/thumbs/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.jpg',
+          title: 'Modern Frameless Glass & Custom Tile Surround'
+        }
+      ],
+      basements: [
+        {
+          video: 'videos/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.mp4',
+          poster: 'photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg',
+          title: 'Finished Basement Living Suite with Luxury Flooring & Brick Accent'
+        },
+        {
+          video: 'videos/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.mp4',
+          poster: 'photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg',
+          title: 'Custom Tile Flooring & Basement Entryway'
         }
       ],
       flooring: [
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/07/Flooring-e1785249613410.jpg',
-          title: 'Wide Plank Luxury Hardwood Flooring'
+          video: 'videos/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.mp4',
+          poster: 'photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg',
+          title: 'Wide-Plank Luxury Wood Flooring & Trim Work'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/09/DSC_6530-Edit.jpg',
-          title: 'Modern Foyer Flooring with Staircase Integration'
-        },
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/05/DSC02682-1.jpg',
-          title: 'Custom Hardwood & Designer Tile Transitions'
-        }
-      ],
-      fireplaces: [
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/05/DSC_6447-Edit.jpg',
-          title: 'Floor-to-Ceiling Stone Hearth Fireplace'
-        },
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/04/IMG_0050.jpg',
-          title: 'Modern Clean Surround & Architectural Accent Wall'
-        },
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2025/10/34-web-or-mls-DSC08299-1-1024x683.jpg',
-          title: 'Classic Living Room Fireplace Renovation'
+          video: 'videos/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.mp4',
+          poster: 'photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg',
+          title: 'Polished Ceramic & Natural Stone Flooring'
         }
       ],
       additions: [
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/04/DSC04423.jpg',
-          title: 'Light-Filled Sunroom Addition with Vaulted Ceilings'
+          video: 'videos/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.mp4',
+          poster: 'photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg',
+          title: 'Residential Structural Framing & Exterior Addition'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/04/80-web-or-mls-DSC08539.jpg',
-          title: 'Modern Multi-Room Home Addition'
-        },
-        {
-          src: 'https://designproremodeling.com/wp-content/uploads/2022/10/11-1024x681.jpg',
-          title: 'Seamless Architectural Exterior Expansion'
+          video: 'videos/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.mp4',
+          poster: 'photos/thumbs/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.jpg',
+          title: 'Exterior Remodel & Backyard Home Extension'
         }
       ],
-      porches: [
+      custom: [
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/07/9312-hamilton-dr-fairfax-va-35-e1785250092223.jpg',
-          title: 'Screened Porch & Composite Deck with Cedar Ceiling'
+          video: 'videos/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.mp4',
+          poster: 'photos/thumbs/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.jpg',
+          title: 'Custom LED Backlit Mirror & Floating Vanity'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/05/DSC04416.jpg',
-          title: 'Covered Outdoor Living Room & Entertaining Area'
+          video: 'videos/att.UEALgeMmISxrldGzCUQckqRfF_3mm2YDU3OMp9d1Nq8.mp4',
+          poster: 'photos/thumbs/att.UEALgeMmISxrldGzCUQckqRfF_3mm2YDU3OMp9d1Nq8.jpg',
+          title: 'Precision Tile Shower with Gold Trim Recessed Niche'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/03/DSC00855.jpg',
-          title: 'Elevated Backyard Deck with Black Modern Railings'
+          video: 'videos/att.ztIJhiE4D11xlPTh6AveQ0mdYR0KpV1gbp6Nga0_jy8.mp4',
+          poster: 'photos/thumbs/att.ztIJhiE4D11xlPTh6AveQ0mdYR0KpV1gbp6Nga0_jy8.jpg',
+          title: 'Pebble Mosaic Shower Floor with Frameless Glass'
         }
       ],
-      exteriors: [
+      remodeling: [
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/04/80-web-or-mls-DSC08539.jpg',
-          title: 'Full Exterior Transformation & Architectural Siding'
+          video: 'videos/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.mp4',
+          poster: 'photos/thumbs/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.jpg',
+          title: 'Master Craftsman Interior Renovation & Tile Artistry'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2026/04/3-web-or-mls-DSC08572-1.jpg',
-          title: 'Front Porch Portico & Welcoming Entryway Facelift'
+          video: 'videos/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.mp4',
+          poster: 'photos/thumbs/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.jpg',
+          title: 'Modern Bathroom Renovation with Sliding Glass Door'
         },
         {
-          src: 'https://designproremodeling.com/wp-content/uploads/2020/06/6-5.jpg',
-          title: 'Craftsman Exterior Stone & Composite Accents'
+          video: 'videos/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.mp4',
+          poster: 'photos/thumbs/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.jpg',
+          title: 'Frosted Glass Shower Enclosure Installation'
+        }
+      ],
+      branding: [
+        {
+          src: 'photos/cpr_banner.png',
+          title: 'Creative Pro Remodeling LLC - Juan Lozano, Master Craftsman'
+        },
+        {
+          src: 'photos/logo.png',
+          title: 'Creative Pro Remodeling - Official 3D Metallic Emblem'
         }
       ]
     };
@@ -223,14 +248,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateLightbox = () => {
       if (!currentGallery.length) return;
       const item = currentGallery[currentIndex];
-      lightboxImg.style.opacity = '0';
+
+      if (lightboxVideo) {
+        lightboxVideo.pause();
+        lightboxVideo.style.display = 'none';
+        lightboxVideo.src = '';
+      }
+      if (lightboxImg) {
+        lightboxImg.style.display = 'none';
+        lightboxImg.style.opacity = '0';
+      }
+
       setTimeout(() => {
-        lightboxImg.src = item.src;
-        lightboxImg.alt = item.title;
-        lightboxCaption.textContent = item.title;
-        lightboxCounter.textContent = `${currentIndex + 1} of ${currentGallery.length}`;
-        lightboxImg.style.opacity = '1';
-      }, 150);
+        if (item.video) {
+          if (lightboxVideo) {
+            lightboxVideo.src = item.video;
+            if (item.poster) lightboxVideo.poster = item.poster;
+            lightboxVideo.style.display = 'block';
+            lightboxVideo.style.opacity = '1';
+            lightboxVideo.play().catch(() => {});
+          }
+        } else {
+          if (lightboxImg) {
+            lightboxImg.src = item.src;
+            lightboxImg.alt = item.title;
+            lightboxImg.style.display = 'block';
+            lightboxImg.style.opacity = '1';
+          }
+        }
+        if (lightboxCaption) lightboxCaption.textContent = item.title;
+        if (lightboxCounter) lightboxCounter.textContent = `${currentIndex + 1} of ${currentGallery.length}`;
+      }, 120);
     };
 
     const openLightbox = (category) => {
@@ -244,6 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeLightbox = () => {
+      if (lightboxVideo) {
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
+      }
       lightbox.classList.remove('is-active');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
@@ -265,7 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         const category = item.getAttribute('data-category');
-        openLightbox(category);
+        if (category) {
+          openLightbox(category);
+        }
       });
     });
 
