@@ -2020,14 +2020,14 @@ footer small {
 }
 
 /* =========================================================
-   5. Precision Craftsmanship & Smart Standards Ribbon
+   5. Precision Standards Metrics Ribbon
    ========================================================= */
 .precision-bar {
   background: #080d1a;
   position: relative;
   border-top: 1px solid rgba(245, 158, 11, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 68px 24px 56px;
+  padding: 32px 24px;
   overflow: hidden;
 }
 
@@ -2042,160 +2042,21 @@ footer small {
 }
 
 .precision-bar-container {
-  max-width: 1240px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.precision-bar-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 46px;
-}
-
-.precision-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2.2px;
-  color: #fbbf24;
-  margin-bottom: 12px;
-}
-
-.precision-title {
-  color: #ffffff !important;
-  font-size: clamp(23px, 3.2vw, 36px) !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.5px !important;
-  line-height: 1.25 !important;
-  margin: 0 0 14px !important;
-  text-transform: uppercase !important;
-}
-
-.precision-subtitle {
-  color: #94a3b8;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.precision-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 44px;
-}
-
-.precision-card {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 6px;
-  padding: 28px 24px 22px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  position: relative;
-  overflow: hidden;
-}
-
-.precision-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), 0 0 20px rgba(245, 158, 11, 0.15);
-}
-
-.precision-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.precision-num {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fbbf24;
-  letter-spacing: 1.2px;
-}
-
-.precision-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 6px;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fbbf24;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.precision-card:hover .precision-icon {
-  transform: scale(1.08);
-  background: rgba(245, 158, 11, 0.22);
-  color: #fef08a;
-}
-
-.precision-card h3 {
-  color: #f8fafc;
-  font-size: 17px;
-  font-weight: 600;
-  margin: 0 0 12px;
-  line-height: 1.35;
-  text-transform: none;
-  letter-spacing: 0.3px;
-}
-
-.precision-card p {
-  color: #94a3b8;
-  font-size: 13.5px;
-  line-height: 1.6;
-  margin: 0 0 22px;
-  flex-grow: 1;
-}
-
-.precision-card-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 14px;
-}
-
-.precision-metric {
-  font-size: 11px;
-  font-weight: 700;
-  color: #cbd5e1;
-  text-transform: uppercase;
-  letter-spacing: 0.9px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.precision-metric::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-}
-
-/* Precision Stats Ribbon */
 .precision-stats {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: rgba(11, 17, 32, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 17, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 6px;
   padding: 24px 20px;
   flex-wrap: wrap;
-  gap: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .stat-item {
@@ -2203,50 +2064,41 @@ footer small {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 4px 16px;
+  padding: 6px 20px;
+  flex: 1 1 200px;
 }
 
 .stat-number {
-  font-size: clamp(22px, 2.5vw, 29px);
+  font-size: clamp(24px, 2.8vw, 32px);
   font-weight: 700;
   color: #fbbf24;
   letter-spacing: 0.5px;
   line-height: 1.1;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
 }
 
 .stat-label {
   font-size: 11.5px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #cbd5e1;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
 
 .stat-divider {
   width: 1px;
-  height: 38px;
-  background: rgba(255, 255, 255, 0.1);
+  height: 42px;
+  background: rgba(255, 255, 255, 0.12);
 }
 
-@media (max-width: 1024px) {
-  .precision-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .precision-bar {
-    padding: 44px 16px 36px;
-  }
-  .precision-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 28px;
+    padding: 24px 16px;
   }
   .precision-stats {
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
     padding: 20px 16px;
   }
   .stat-divider {
