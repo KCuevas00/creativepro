@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Portfolio | Creative Pro Remodeling LLC</title>
+<title>Portfolio Gallery | Creative Pro Remodeling LLC</title>
+<meta name="description" content="Explore real project transformations by Master Craftsman Juan Lozano. Custom kitchens, luxury bathrooms, living spaces, and exterior additions.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3.0">
+<link rel="stylesheet" href="styles.css?v=3.1">
 </head>
 <body class="has-fixed-nav">
 
@@ -32,7 +33,6 @@
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="index.html#about">About Us</a>
       <a class="nav-link" href="index.html#services">Services</a>
-      <a class="nav-link" href="portfolio.html">Featured Projects</a>
       <a class="nav-link active" href="portfolio.html">Portfolio</a>
 
       <!-- Mobile Drawer Footer Actions -->
@@ -58,55 +58,358 @@
 <div class="nav-backdrop"></div>
 
 <main>
-  <div class="portfolio-grid">
-    <div class="portfolio-item reveal-left" data-category="kitchens">
-      <img src="photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg" alt="Kitchens" loading="lazy">
-      <div class="portfolio-overlay"></div>
-      <div class="portfolio-title">Kitchens</div>
+  <!-- Portfolio Header -->
+  <header class="portfolio-header reveal-fade">
+    <div class="portfolio-header-container">
+      <span class="portfolio-subhead">Authentic Master Craftsmanship</span>
+      <h1>Project Gallery</h1>
+      <p>Browse our complete showcase of custom kitchens, luxury bathroom transformations, interior living spaces, and exterior additions across Chicagoland.</p>
+      <div class="portfolio-breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Portfolio</span>
+      </div>
     </div>
+  </header>
 
-    <div class="portfolio-item reveal-right" data-category="bathrooms">
-      <img src="videos/att.970gtKVesR1xjUGCgzqflV2OWC8aKJ6eQjcG_yd52OY.jpg" alt="Bathrooms" loading="lazy">
-      <div class="portfolio-overlay"></div>
-      <div class="portfolio-title">Bathrooms</div>
-    </div>
-
-    <div class="portfolio-item reveal-left" data-category="interiors">
-      <img src="photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg" alt="Interiors" loading="lazy">
-      <div class="portfolio-overlay"></div>
-      <div class="portfolio-title">Interiors</div>
-    </div>
-
-    <div class="portfolio-item reveal-right" data-category="exterior">
-      <img src="photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg" alt="Exterior" loading="lazy">
-      <div class="portfolio-overlay"></div>
-      <div class="portfolio-title">Exterior</div>
-    </div>
-
-    <div class="portfolio-item reveal-left" data-category="other">
-      <img src="photos/cpr_banner.png" alt="Other Custom Work" loading="lazy">
-      <div class="portfolio-overlay"></div>
-      <div class="portfolio-title">Other</div>
+  <!-- Gallery Filter Tabs (Modern Web Gallery Style) -->
+  <div class="portfolio-filters-wrap reveal-fade">
+    <div class="portfolio-filters" role="tablist" aria-label="Portfolio Category Filters">
+      <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+        All Projects <span class="filter-count">25</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="kitchens" role="tab" aria-selected="false">
+        Kitchens <span class="filter-count">4</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="bathrooms" role="tab" aria-selected="false">
+        Bathrooms <span class="filter-count">14</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="interiors" role="tab" aria-selected="false">
+        Interiors &amp; Flooring <span class="filter-count">5</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="exterior" role="tab" aria-selected="false">
+        Exterior &amp; Additions <span class="filter-count">2</span>
+      </button>
     </div>
   </div>
+
+  <!-- The Full Modern Gallery Grid -->
+  <section class="gallery-section">
+    <div class="gallery-grid" id="gallery-grid">
+    <button type="button" class="gallery-card reveal-up" data-category="kitchens" data-index="0" data-type="video" data-media="videos/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.mp4" data-poster="photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg" data-title="Luxury Kitchen Island & Custom Cabinetry" data-catname="Kitchens" aria-label="Luxury Kitchen Island & Custom Cabinetry">
+      <img src="photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg" alt="Luxury Kitchen Island & Custom Cabinetry" loading="lazy">
+      <span class="gallery-card-badge">Kitchens</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Kitchens</span>
+          <h3 class="gallery-card-title">Luxury Kitchen Island & Custom Cabinetry</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="kitchens" data-index="1" data-type="video" data-media="videos/att.ucdAuTRRYabAZ8vkFyUzYQKstpuCozJaKjcC5Fg2-l0.mp4" data-poster="photos/thumbs/att.ucdAuTRRYabAZ8vkFyUzYQKstpuCozJaKjcC5Fg2-l0.jpg" data-title="Designer Quartz Countertops & Under-Cabinet Lighting" data-catname="Kitchens" aria-label="Designer Quartz Countertops & Under-Cabinet Lighting">
+      <img src="photos/thumbs/att.ucdAuTRRYabAZ8vkFyUzYQKstpuCozJaKjcC5Fg2-l0.jpg" alt="Designer Quartz Countertops & Under-Cabinet Lighting" loading="lazy">
+      <span class="gallery-card-badge">Kitchens</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Kitchens</span>
+          <h3 class="gallery-card-title">Designer Quartz Countertops & Under-Cabinet Lighting</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="kitchens" data-index="2" data-type="video" data-media="videos/att.8_YWMmqyAIp7lA5w8Ne7JRD0POWvu3PNwK841J3LADA.mp4" data-poster="photos/thumbs/att.8_YWMmqyAIp7lA5w8Ne7JRD0POWvu3PNwK841J3LADA.jpg" data-title="Warm Wood Kitchen Cabinetry & Custom Sink" data-catname="Kitchens" aria-label="Warm Wood Kitchen Cabinetry & Custom Sink">
+      <img src="photos/thumbs/att.8_YWMmqyAIp7lA5w8Ne7JRD0POWvu3PNwK841J3LADA.jpg" alt="Warm Wood Kitchen Cabinetry & Custom Sink" loading="lazy">
+      <span class="gallery-card-badge">Kitchens</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Kitchens</span>
+          <h3 class="gallery-card-title">Warm Wood Kitchen Cabinetry & Custom Sink</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="kitchens" data-index="3" data-type="video" data-media="videos/att.vfARFXoTnHJfOLqqF8W1_fSoY4aCxrxRsz4XRqmZS-Q.mp4" data-poster="photos/thumbs/att.vfARFXoTnHJfOLqqF8W1_fSoY4aCxrxRsz4XRqmZS-Q.jpg" data-title="Full Custom Island & Cabinet Installation" data-catname="Kitchens" aria-label="Full Custom Island & Cabinet Installation">
+      <img src="photos/thumbs/att.vfARFXoTnHJfOLqqF8W1_fSoY4aCxrxRsz4XRqmZS-Q.jpg" alt="Full Custom Island & Cabinet Installation" loading="lazy">
+      <span class="gallery-card-badge">Kitchens</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Kitchens</span>
+          <h3 class="gallery-card-title">Full Custom Island & Cabinet Installation</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="4" data-type="image" data-media="videos/att.970gtKVesR1xjUGCgzqflV2OWC8aKJ6eQjcG_yd52OY.jpg" data-poster="videos/att.970gtKVesR1xjUGCgzqflV2OWC8aKJ6eQjcG_yd52OY.jpg" data-title="Walk-In Shower with Rain Head & Hexagon Mosaic Niche" data-catname="Bathrooms" aria-label="Walk-In Shower with Rain Head & Hexagon Mosaic Niche">
+      <img src="videos/att.970gtKVesR1xjUGCgzqflV2OWC8aKJ6eQjcG_yd52OY.jpg" alt="Walk-In Shower with Rain Head & Hexagon Mosaic Niche" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Walk-In Shower with Rain Head & Hexagon Mosaic Niche</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="5" data-type="video" data-media="videos/att.KTTjtNAtQ304b6EBsn0ZfpWx3SeXYvGI1veDeXCvkAE.mp4" data-poster="photos/thumbs/att.KTTjtNAtQ304b6EBsn0ZfpWx3SeXYvGI1veDeXCvkAE.jpg" data-title="Frameless Glass Shower Enclosure with Built-In Bench" data-catname="Bathrooms" aria-label="Frameless Glass Shower Enclosure with Built-In Bench">
+      <img src="photos/thumbs/att.KTTjtNAtQ304b6EBsn0ZfpWx3SeXYvGI1veDeXCvkAE.jpg" alt="Frameless Glass Shower Enclosure with Built-In Bench" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Frameless Glass Shower Enclosure with Built-In Bench</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="6" data-type="video" data-media="videos/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.mp4" data-poster="photos/thumbs/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.jpg" data-title="LED Backlit Vanity Mirror & Contemporary Dark Vanity" data-catname="Bathrooms" aria-label="LED Backlit Vanity Mirror & Contemporary Dark Vanity">
+      <img src="photos/thumbs/att.4WElZvAEzgX-9jBeF96TNk1SkMY1p260NkiwqzmOLss.jpg" alt="LED Backlit Vanity Mirror & Contemporary Dark Vanity" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">LED Backlit Vanity Mirror & Contemporary Dark Vanity</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="7" data-type="image" data-media="videos/att.fWpCm0skN6ss4QCZNMa-juQdOCfMdO2ke7EJ_wlxbS0.jpg" data-poster="videos/att.fWpCm0skN6ss4QCZNMa-juQdOCfMdO2ke7EJ_wlxbS0.jpg" data-title="Designer Glass Corner Enclosure & Custom Tile Floor" data-catname="Bathrooms" aria-label="Designer Glass Corner Enclosure & Custom Tile Floor">
+      <img src="videos/att.fWpCm0skN6ss4QCZNMa-juQdOCfMdO2ke7EJ_wlxbS0.jpg" alt="Designer Glass Corner Enclosure & Custom Tile Floor" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Designer Glass Corner Enclosure & Custom Tile Floor</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="8" data-type="image" data-media="videos/att.iv5W4pi6xHmqqS89PVOyyCLy30XCGVuYVkUfE5QwFXE.jpg" data-poster="videos/att.iv5W4pi6xHmqqS89PVOyyCLy30XCGVuYVkUfE5QwFXE.jpg" data-title="Frameless Shower Enclosure with Matte Black Fixtures" data-catname="Bathrooms" aria-label="Frameless Shower Enclosure with Matte Black Fixtures">
+      <img src="videos/att.iv5W4pi6xHmqqS89PVOyyCLy30XCGVuYVkUfE5QwFXE.jpg" alt="Frameless Shower Enclosure with Matte Black Fixtures" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><span>Photo</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Frameless Shower Enclosure with Matte Black Fixtures</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="9" data-type="video" data-media="videos/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.mp4" data-poster="photos/thumbs/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.jpg" data-title="Contemporary Dual Sconce Vanity with Green Tile Accent" data-catname="Bathrooms" aria-label="Contemporary Dual Sconce Vanity with Green Tile Accent">
+      <img src="photos/thumbs/att.xh4qp8SCjPj21yNXbsV1EXvaYIFRwcRiNh0OHsVXvJo.jpg" alt="Contemporary Dual Sconce Vanity with Green Tile Accent" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Contemporary Dual Sconce Vanity with Green Tile Accent</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="10" data-type="video" data-media="videos/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.mp4" data-poster="photos/thumbs/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.jpg" data-title="Modern Frameless Glass & Custom Tile Surround" data-catname="Bathrooms" aria-label="Modern Frameless Glass & Custom Tile Surround">
+      <img src="photos/thumbs/att.1Bus7uS-LDiAKcWW4Q0RCi7qJPqbRxl7-NEH_yzDI6w.jpg" alt="Modern Frameless Glass & Custom Tile Surround" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Modern Frameless Glass & Custom Tile Surround</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="11" data-type="video" data-media="videos/att.UEALgeMmISxrldGzCUQckqRfF_3mm2YDU3OMp9d1Nq8.mp4" data-poster="photos/thumbs/att.UEALgeMmISxrldGzCUQckqRfF_3mm2YDU3OMp9d1Nq8.jpg" data-title="Precision Tile Shower with Gold Trim Recessed Niche" data-catname="Bathrooms" aria-label="Precision Tile Shower with Gold Trim Recessed Niche">
+      <img src="photos/thumbs/att.UEALgeMmISxrldGzCUQckqRfF_3mm2YDU3OMp9d1Nq8.jpg" alt="Precision Tile Shower with Gold Trim Recessed Niche" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Precision Tile Shower with Gold Trim Recessed Niche</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="12" data-type="video" data-media="videos/att.ztIJhiE4D11xlPTh6AveQ0mdYR0KpV1gbp6Nga0_jy8.mp4" data-poster="photos/thumbs/att.ztIJhiE4D11xlPTh6AveQ0mdYR0KpV1gbp6Nga0_jy8.jpg" data-title="Pebble Mosaic Shower Floor with Frameless Glass" data-catname="Bathrooms" aria-label="Pebble Mosaic Shower Floor with Frameless Glass">
+      <img src="photos/thumbs/att.ztIJhiE4D11xlPTh6AveQ0mdYR0KpV1gbp6Nga0_jy8.jpg" alt="Pebble Mosaic Shower Floor with Frameless Glass" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Pebble Mosaic Shower Floor with Frameless Glass</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="13" data-type="video" data-media="videos/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.mp4" data-poster="photos/thumbs/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.jpg" data-title="Custom Modern Bathroom Renovation with Sliding Glass" data-catname="Bathrooms" aria-label="Custom Modern Bathroom Renovation with Sliding Glass">
+      <img src="photos/thumbs/att.B2qH864DE0tKtbHv6DN1pukQkO5QgNRpmHC5CipJw3Y.jpg" alt="Custom Modern Bathroom Renovation with Sliding Glass" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Custom Modern Bathroom Renovation with Sliding Glass</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="14" data-type="video" data-media="videos/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.mp4" data-poster="photos/thumbs/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.jpg" data-title="Frosted Glass Shower Enclosure Installation" data-catname="Bathrooms" aria-label="Frosted Glass Shower Enclosure Installation">
+      <img src="photos/thumbs/att.xmAkLA4lv0BZXJTYUPI24WJwzXhDj28dN9jzkW4PFhQ.jpg" alt="Frosted Glass Shower Enclosure Installation" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Frosted Glass Shower Enclosure Installation</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="15" data-type="video" data-media="videos/att.IwjAXisU4RDxzNMsPoDswte-PZe-Uu6724-7vSLvJBU.mp4" data-poster="photos/thumbs/att.IwjAXisU4RDxzNMsPoDswte-PZe-Uu6724-7vSLvJBU.jpg" data-title="Designer Tiled Shower & Custom White Vanity Suite" data-catname="Bathrooms" aria-label="Designer Tiled Shower & Custom White Vanity Suite">
+      <img src="photos/thumbs/att.IwjAXisU4RDxzNMsPoDswte-PZe-Uu6724-7vSLvJBU.jpg" alt="Designer Tiled Shower & Custom White Vanity Suite" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Designer Tiled Shower & Custom White Vanity Suite</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="16" data-type="video" data-media="videos/att.rYje_ysVtDsRHG-D_7YZ-IybIvDUe_cfuIVTW6C3r30.mp4" data-poster="photos/thumbs/att.rYje_ysVtDsRHG-D_7YZ-IybIvDUe_cfuIVTW6C3r30.jpg" data-title="Marble Tile Walk-In Shower & Sliding Glass Enclosure" data-catname="Bathrooms" aria-label="Marble Tile Walk-In Shower & Sliding Glass Enclosure">
+      <img src="photos/thumbs/att.rYje_ysVtDsRHG-D_7YZ-IybIvDUe_cfuIVTW6C3r30.jpg" alt="Marble Tile Walk-In Shower & Sliding Glass Enclosure" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Marble Tile Walk-In Shower & Sliding Glass Enclosure</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="bathrooms" data-index="17" data-type="video" data-media="videos/att.sT2PQgnprZIC0pbfR1510E9l6A9BcaLkppr-KmYGsLg.mp4" data-poster="photos/thumbs/att.sT2PQgnprZIC0pbfR1510E9l6A9BcaLkppr-KmYGsLg.jpg" data-title="Modern Vanity Sink, LED Illuminated Mirror & Tile Surround" data-catname="Bathrooms" aria-label="Modern Vanity Sink, LED Illuminated Mirror & Tile Surround">
+      <img src="photos/thumbs/att.sT2PQgnprZIC0pbfR1510E9l6A9BcaLkppr-KmYGsLg.jpg" alt="Modern Vanity Sink, LED Illuminated Mirror & Tile Surround" loading="lazy">
+      <span class="gallery-card-badge">Bathrooms</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Bathrooms</span>
+          <h3 class="gallery-card-title">Modern Vanity Sink, LED Illuminated Mirror & Tile Surround</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="interiors" data-index="18" data-type="video" data-media="videos/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.mp4" data-poster="photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg" data-title="Finished Living Suite with Luxury Flooring & Trim" data-catname="Interiors & Flooring" aria-label="Finished Living Suite with Luxury Flooring & Trim">
+      <img src="photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg" alt="Finished Living Suite with Luxury Flooring & Trim" loading="lazy">
+      <span class="gallery-card-badge">Interiors & Flooring</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Interiors & Flooring</span>
+          <h3 class="gallery-card-title">Finished Living Suite with Luxury Flooring & Trim</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="interiors" data-index="19" data-type="video" data-media="videos/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.mp4" data-poster="photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg" data-title="Custom Tile Flooring & Living Entryway" data-catname="Interiors & Flooring" aria-label="Custom Tile Flooring & Living Entryway">
+      <img src="photos/thumbs/att.iB3y3PqItc2d8NhAGWk6qJw_AZOaA0fVvFvn6cqfEuM.jpg" alt="Custom Tile Flooring & Living Entryway" loading="lazy">
+      <span class="gallery-card-badge">Interiors & Flooring</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Interiors & Flooring</span>
+          <h3 class="gallery-card-title">Custom Tile Flooring & Living Entryway</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="interiors" data-index="20" data-type="video" data-media="videos/att.2BalRMalskuFu9Mn4uZFyzM6aL0MqPrfYy8mgXWTwhc.mp4" data-poster="photos/thumbs/att.2BalRMalskuFu9Mn4uZFyzM6aL0MqPrfYy8mgXWTwhc.jpg" data-title="Open Concept Interior Renovation & Living Space" data-catname="Interiors & Flooring" aria-label="Open Concept Interior Renovation & Living Space">
+      <img src="photos/thumbs/att.2BalRMalskuFu9Mn4uZFyzM6aL0MqPrfYy8mgXWTwhc.jpg" alt="Open Concept Interior Renovation & Living Space" loading="lazy">
+      <span class="gallery-card-badge">Interiors & Flooring</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Interiors & Flooring</span>
+          <h3 class="gallery-card-title">Open Concept Interior Renovation & Living Space</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="interiors" data-index="21" data-type="video" data-media="videos/att.I6n1MFW-43ozeKTnIQzqdx_wz3deWKS_8Sb8Z-VqA_c.mp4" data-poster="photos/thumbs/att.I6n1MFW-43ozeKTnIQzqdx_wz3deWKS_8Sb8Z-VqA_c.jpg" data-title="Interior Craftsman Details & Finishes" data-catname="Interiors & Flooring" aria-label="Interior Craftsman Details & Finishes">
+      <img src="photos/thumbs/att.I6n1MFW-43ozeKTnIQzqdx_wz3deWKS_8Sb8Z-VqA_c.jpg" alt="Interior Craftsman Details & Finishes" loading="lazy">
+      <span class="gallery-card-badge">Interiors & Flooring</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Interiors & Flooring</span>
+          <h3 class="gallery-card-title">Interior Craftsman Details & Finishes</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="interiors" data-index="22" data-type="video" data-media="videos/att.87zcD-nmSMO7uO8nJ764MOznBh0yLTHlNP4v0vDLDnE.mp4" data-poster="photos/thumbs/att.87zcD-nmSMO7uO8nJ764MOznBh0yLTHlNP4v0vDLDnE.jpg" data-title="Custom Interior Hallway Flooring & Trim Finishing" data-catname="Interiors & Flooring" aria-label="Custom Interior Hallway Flooring & Trim Finishing">
+      <img src="photos/thumbs/att.87zcD-nmSMO7uO8nJ764MOznBh0yLTHlNP4v0vDLDnE.jpg" alt="Custom Interior Hallway Flooring & Trim Finishing" loading="lazy">
+      <span class="gallery-card-badge">Interiors & Flooring</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Interiors & Flooring</span>
+          <h3 class="gallery-card-title">Custom Interior Hallway Flooring & Trim Finishing</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="exterior" data-index="23" data-type="video" data-media="videos/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.mp4" data-poster="photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg" data-title="Residential Structural Framing & Exterior Addition" data-catname="Exterior & Additions" aria-label="Residential Structural Framing & Exterior Addition">
+      <img src="photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg" alt="Residential Structural Framing & Exterior Addition" loading="lazy">
+      <span class="gallery-card-badge">Exterior & Additions</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Exterior & Additions</span>
+          <h3 class="gallery-card-title">Residential Structural Framing & Exterior Addition</h3>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="gallery-card reveal-up" data-category="exterior" data-index="24" data-type="video" data-media="videos/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.mp4" data-poster="photos/thumbs/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.jpg" data-title="Exterior Remodel & Backyard Home Extension" data-catname="Exterior & Additions" aria-label="Exterior Remodel & Backyard Home Extension">
+      <img src="photos/thumbs/att.vOThgqi77WAdpZjVTtpznj-z0jqDS4Cf8kg8mphB5rM.jpg" alt="Exterior Remodel & Backyard Home Extension" loading="lazy">
+      <span class="gallery-card-badge">Exterior & Additions</span>
+      <span class="gallery-card-media-pill"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Video</span></span>
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-info">
+          <span class="gallery-card-cat">Exterior & Additions</span>
+          <h3 class="gallery-card-title">Exterior Remodel & Backyard Home Extension</h3>
+        </div>
+      </div>
+    </button>
+    </div>
+  </section>
 </main>
 
-<!-- Lightbox Modal for Category Gallery Popups -->
-<div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
-  <button class="lightbox-close" aria-label="Close Gallery">&times;</button>
-  <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#10094;</button>
+<!-- Lightbox Modal for Full Gallery Viewing -->
+<div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Project Lightbox">
+  <button class="lightbox-close" aria-label="Close Lightbox">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous project">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
   <div class="lightbox-body">
-    <img id="lightbox-img" src="" alt="Portfolio Image" style="display:none">
-    <video id="lightbox-video" controls playsinline style="display:none"></video>
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-    <div id="lightbox-counter" class="lightbox-counter"></div>
+    <div class="lightbox-media-wrap">
+      <img id="lightbox-img" src="" alt="Portfolio Image" style="display:none">
+      <video id="lightbox-video" controls playsinline muted style="display:none"></video>
+    </div>
+    <div class="lightbox-footer">
+      <div class="lightbox-meta">
+        <span id="lightbox-cat" class="lightbox-cat-pill"></span>
+        <h3 id="lightbox-caption" class="lightbox-caption"></h3>
+      </div>
+      <div id="lightbox-counter" class="lightbox-counter"></div>
+    </div>
   </div>
-  <button class="lightbox-nav lightbox-next" aria-label="Next image">&#10095;</button>
+  <button class="lightbox-nav lightbox-next" aria-label="Next project">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
 </div>
 
-<div style="text-align:center;margin:30px 0 70px" class="reveal-up">
-  <a class="btn" style="padding:13px 36px;font-size:12px" href="estimate.html">Request an Estimate</a>
-</div>
+<!-- CTA Band -->
+<section class="gallery-cta reveal-up">
+  <div class="gallery-cta-inner">
+    <h2>Ready to transform your home?</h2>
+    <p>Schedule your free consultation with Juan Lozano, Master Craftsman at Creative Pro Remodeling LLC.</p>
+    <div class="gallery-cta-actions">
+      <a href="estimate.html" class="btn">Request a Free Estimate</a>
+      <a href="tel:8476241501" class="btn o">Call (847) 624-1501</a>
+    </div>
+  </div>
+</section>
 
 <footer class="reveal-fade">
   <img src="photos/logo_transparent.png" alt="Creative Pro Remodeling LLC" class="footer-logo">
@@ -119,6 +422,6 @@
   <div class="soc"><i style="background:#000">IG</i><i style="background:#3b5998">f</i><i style="background:#6b6b6b">G</i></div>
 </footer>
 
-<script src="main.js?v=3.0"></script>
+<script src="main.js?v=3.1"></script>
 </body>
 </html>
