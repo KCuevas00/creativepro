@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portfolio | Creative Pro Remodeling LLC</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2.2">
 </head>
 <body class="has-fixed-nav">
 
@@ -15,37 +15,47 @@
       <img src="photos/logo_transparent.png" alt="Creative Pro Remodeling LLC" class="nav-logo-img">
       <span class="logo-text"><b>CREATIVEPRO</b><small>REMODELING LLC</small></span>
     </a>
+
     <div class="nav-links">
-      <a class="l" href="index.html#about">About ▾</a>
-      <a class="l" href="index.html#services">Services ▾</a>
-      <a class="l" href="portfolio.html">Featured Projects</a>
-      <a class="l active" href="portfolio.html">Portfolio</a>
-      <a class="l cta" href="estimate.html">Request an Estimate</a>
+      <!-- Mobile Drawer Top Header -->
+      <div class="mobile-drawer-header">
+        <div class="mobile-drawer-brand">
+          <img src="photos/logo_transparent.png" alt="Creative Pro" class="mobile-drawer-logo">
+          <div class="mobile-drawer-brand-text">
+            <b>CREATIVEPRO</b>
+            <small>REMODELING LLC</small>
+          </div>
+        </div>
+        <button type="button" class="mobile-drawer-close" aria-label="Close menu">&times;</button>
+      </div>
+
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="index.html#about">About Us</a>
+      <a class="nav-link" href="index.html#services">Services</a>
+      <a class="nav-link" href="portfolio.html">Featured Projects</a>
+      <a class="nav-link active" href="portfolio.html">Portfolio</a>
+
+      <!-- Mobile Drawer Footer Actions -->
+      <div class="mobile-drawer-footer">
+        <a href="tel:8476241501" class="mobile-drawer-btn mobile-drawer-call">📞 (847) 624-1501</a>
+        <a href="estimate.html" class="mobile-drawer-btn mobile-drawer-est">Request an Estimate</a>
+      </div>
     </div>
-    <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+
+    <!-- Desktop CTA + Mobile Hamburger Toggle -->
+    <div class="nav-actions">
+      <a class="nav-cta-btn" href="estimate.html">Request an Estimate</a>
+      <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- Mobile Navigation Drawer -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a class="mobile-nav-link" href="index.html">Home</a>
-    <a class="mobile-nav-link" href="index.html#about">About</a>
-    <a class="mobile-nav-link" href="index.html#services">Services</a>
-    <a class="mobile-nav-link" href="portfolio.html">Featured Projects</a>
-    <a class="mobile-nav-link active" href="portfolio.html">Portfolio</a>
-    <div class="mobile-menu-cta">
-      <a class="btn" href="estimate.html">Request an Estimate</a>
-    </div>
-    <div class="mobile-menu-contact">
-      <a href="tel:8476241501">📞 Call: (847) 624-1501</a>
-    </div>
-  </div>
-</div>
+<!-- Full-viewport Frosted Backdrop for Mobile Slide Drawer -->
+<div class="nav-backdrop"></div>
 
 <main>
   <div class="portfolio-grid">
@@ -127,6 +137,6 @@
   <div class="soc"><i style="background:#000">IG</i><i style="background:#3b5998">f</i><i style="background:#6b6b6b">G</i></div>
 </footer>
 
-<script src="main.js"></script>
+<script src="main.js?v=2.2"></script>
 </body>
 </html>

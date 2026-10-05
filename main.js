@@ -14,43 +14,96 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
   }
 
-  // 1b. Mobile Hamburger Menu Toggle
-  const hamburgerBtn = document.querySelector('.hamburger-btn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta a');
+  // 1b. Mobile Menu Toggle & Slide-out Drawer (NGSolutions architecture)
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  let navBackdrop = document.querySelector('.nav-backdrop');
 
-  if (hamburgerBtn && mobileMenu) {
-    const toggleMenu = (open) => {
-      const isOpen = open !== undefined ? open : !hamburgerBtn.classList.contains('is-active');
-      hamburgerBtn.classList.toggle('is-active', isOpen);
-      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      mobileMenu.classList.toggle('is-active', isOpen);
-      mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-      document.body.classList.toggle('menu-open', isOpen);
-      if (nav) {
-        if (isOpen) {
-          nav.classList.add('scrolled');
-        } else if (window.scrollY <= 20 && !nav.classList.contains('nav-solid')) {
-          nav.classList.remove('scrolled');
+  // Ensure backdrop element exists directly in document.body
+  if (!navBackdrop) {
+    navBackdrop = document.createElement('div');
+    navBackdrop.className = 'nav-backdrop';
+    document.body.appendChild(navBackdrop);
+  } else if (navBackdrop.parentElement !== document.body) {
+    document.body.appendChild(navBackdrop);
+  }
+
+  function openMobileMenu() {
+    if (!navLinks) return;
+    navLinks.classList.add('active');
+    if (navBackdrop) navBackdrop.classList.add('active');
+    if (mobileToggle) {
+      mobileToggle.classList.add('active');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+    }
+    document.body.classList.add('nav-drawer-open');
+    if (nav) nav.classList.add('scrolled');
+  }
+
+  function closeMobileMenu() {
+    if (!navLinks) return;
+    navLinks.classList.remove('active');
+    if (navBackdrop) navBackdrop.classList.remove('active');
+    if (mobileToggle) {
+      mobileToggle.classList.remove('active');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+    document.body.classList.remove('nav-drawer-open');
+    if (nav && window.scrollY <= 20 && !nav.classList.contains('nav-solid')) {
+      nav.classList.remove('scrolled');
+    }
+  }
+
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navLinks.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMobileMenu();
+      });
+      navBackdrop.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.mobile-drawer-close')) {
+        e.preventDefault();
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active')) {
+        if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+          closeMobileMenu();
         }
       }
-    };
+    });
 
-    hamburgerBtn.addEventListener('click', () => toggleMenu());
-
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => toggleMenu(false));
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('is-active')) {
-        toggleMenu(false);
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        closeMobileMenu();
       }
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 820 && mobileMenu.classList.contains('is-active')) {
-        toggleMenu(false);
+      if (window.innerWidth > 991 && navLinks.classList.contains('active')) {
+        closeMobileMenu();
       }
     });
   }
