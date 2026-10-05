@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 4. Interactive Spotlight Cursor Luminescence (Apple AI / Linear style)
-  const spotlightCards = document.querySelectorAll('.gallery-card, .gal-item, .portfolio-item');
+  const spotlightCards = document.querySelectorAll('.gallery-card, .gal-item, .portfolio-item, .precision-card, .tech-bar-card');
   if (spotlightCards.length) {
     const updateSpotlight = (e) => {
       const card = e.currentTarget;
