@@ -473,4 +473,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateEstimate();
   }
+
+  // 5. Interactive Materials & Finishes Moodboard (index.html)
+  const moodboardSection = document.getElementById('materials-studio');
+  if (moodboardSection) {
+    const previewText = document.getElementById('moodboard-preview-text');
+    const swatchGroups = moodboardSection.querySelectorAll('.swatch-group');
+
+    function updateMoodboard() {
+      const selections = [];
+      swatchGroups.forEach((group) => {
+        const active = group.querySelector('.swatch-btn.active');
+        if (active) {
+          selections.push(active.getAttribute('data-val'));
+        }
+      });
+      if (previewText && selections.length === 3) {
+        previewText.textContent = `${selections[0]} + ${selections[1]} + ${selections[2]}`;
+      }
+    }
+
+    swatchGroups.forEach((group) => {
+      group.addEventListener('click', (e) => {
+        const btn = e.target.closest('.swatch-btn');
+        if (!btn) return;
+        group.querySelectorAll('.swatch-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateMoodboard();
+      });
+    });
+  }
 });
