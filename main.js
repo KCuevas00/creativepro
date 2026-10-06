@@ -400,9 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateParallax();
   }
 
-  // 6. Desktop Hero Architectural House Slideshow Carousel & Synchronized Text
+  // 6. Desktop Hero Architectural House Slideshow Carousel
   const heroSlides = document.querySelectorAll('.hero-slide');
-  const heroTextSlides = document.querySelectorAll('.hero-text-slide');
   const heroDots = document.querySelectorAll('.hero-dot');
   const heroPrev = document.querySelector('.hero-prev');
   const heroNext = document.querySelector('.hero-next');
@@ -415,22 +414,6 @@ document.addEventListener('DOMContentLoaded', () => {
       heroSlides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
-
-      // Synchronized headline rotation with directional exit/enter
-      if (heroTextSlides.length) {
-        heroTextSlides.forEach((textSlide, i) => {
-          if (i === index) {
-            textSlide.classList.remove('exit');
-            textSlide.classList.add('active');
-          } else if (i === currentSlide) {
-            textSlide.classList.remove('active');
-            textSlide.classList.add('exit');
-          } else {
-            textSlide.classList.remove('active', 'exit');
-          }
-        });
-      }
-
       heroDots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
       });
