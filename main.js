@@ -348,6 +348,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let ticking = false;
 
     const updateParallax = () => {
+      // Disable on mobile/touch screens (< 768px) to prevent layout shift and inertia jitter
+      if (window.innerWidth < 768) {
+        parallaxItems.forEach((el) => {
+          if (el.style.transform) el.style.transform = '';
+        });
+        ticking = false;
+        return;
+      }
+
       const vh = window.innerHeight;
 
       parallaxItems.forEach((el) => {
