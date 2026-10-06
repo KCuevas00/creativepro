@@ -399,4 +399,67 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', onScroll, { passive: true });
     updateParallax();
   }
+
+  // 6. Desktop Hero Architectural House Slideshow Carousel
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-dot');
+  const heroPrev = document.querySelector('.hero-prev');
+  const heroNext = document.querySelector('.hero-next');
+
+  if (heroSlides.length > 1) {
+    let currentSlide = 0;
+    let slideTimer = null;
+
+    const showSlide = (index) => {
+      heroSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      heroDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentSlide = index;
+    };
+
+    const nextSlide = () => {
+      const nextIndex = (currentSlide + 1) % heroSlides.length;
+      showSlide(nextIndex);
+    };
+
+    const prevSlide = () => {
+      const prevIndex = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+      showSlide(prevIndex);
+    };
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      slideTimer = setInterval(nextSlide, 5500);
+    };
+
+    const stopAutoSlide = () => {
+      if (slideTimer) clearInterval(slideTimer);
+    };
+
+    heroNext?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    heroPrev?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevSlide();
+      startAutoSlide();
+    });
+
+    heroDots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(i);
+        startAutoSlide();
+      });
+    });
+
+    // Start automated cycle
+    startAutoSlide();
+  }
 });
