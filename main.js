@@ -341,4 +341,40 @@ document.addEventListener('DOMContentLoaded', () => {
       card.addEventListener('pointermove', updateSpotlight, { passive: true });
     });
   }
+
+  // 5. Hardware-Accelerated Dynamic Parallax Engine ("Scroll down -> Background moves up")
+  const parallaxItems = document.querySelectorAll('[data-parallax]');
+  if (parallaxItems.length) {
+    let ticking = false;
+
+    const updateParallax = () => {
+      const vh = window.innerHeight;
+
+      parallaxItems.forEach((el) => {
+        const parent = el.closest('.hero, .parallax-showcase') || el.parentElement;
+        const rect = parent.getBoundingClientRect();
+
+        // Calculate only when container is near/within viewport
+        if (rect.bottom >= -100 && rect.top <= vh + 100) {
+          const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.35');
+          const centerOffset = (rect.top + rect.height / 2) - (vh / 2);
+          const translateY = centerOffset * speed;
+          el.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0)`;
+        }
+      });
+
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateParallax();
+  }
 });
