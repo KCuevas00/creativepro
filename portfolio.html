@@ -6,7 +6,7 @@
 <title>Portfolio Gallery | Creative Pro Remodeling LLC</title>
 <meta name="description" content="Explore real project transformations by Master Craftsman Juan Lozano. Custom kitchens, luxury bathrooms, living spaces, and exterior additions.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3.5">
+<link rel="stylesheet" href="styles.css?v=4.2">
 </head>
 <body class="has-fixed-nav">
 
@@ -31,8 +31,8 @@
       </div>
 
       <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="index.html#about">About Us</a>
-      <a class="nav-link" href="index.html#services">Services</a>
+      <a class="nav-link" href="about.html">About Us</a>
+      <a class="nav-link" href="services.html">Services</a>
       <a class="nav-link active" href="portfolio.html">Portfolio</a>
 
       <!-- Mobile Drawer Footer Actions -->
@@ -70,29 +70,32 @@
     </div>
   </header>
 
-  <!-- Gallery Filter Tabs (Modern Web Gallery Style) -->
-  <div class="portfolio-filters-wrap reveal-fade">
-    <div class="portfolio-filters" role="tablist" aria-label="Portfolio Category Filters">
-      <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
-        All Projects <span class="filter-count">25</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="kitchens" role="tab" aria-selected="false">
-        Kitchens <span class="filter-count">4</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="bathrooms" role="tab" aria-selected="false">
-        Bathrooms <span class="filter-count">14</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="interiors" role="tab" aria-selected="false">
-        Interiors &amp; Flooring <span class="filter-count">5</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="exterior" role="tab" aria-selected="false">
-        Exterior &amp; Additions <span class="filter-count">2</span>
-      </button>
-    </div>
-  </div>
+  <!-- Big Category Squares -->
+  <section class="cat-tiles" id="cat-tiles">
+    <button type="button" class="cat-tile reveal-up" data-cat="kitchens">
+      <img src="photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg" alt="Kitchens">
+      <span class="cat-tile-info"><b>Kitchens</b><em>4 projects &middot; View &rarr;</em></span>
+    </button>
+    <button type="button" class="cat-tile reveal-up delay-1" data-cat="bathrooms">
+      <img src="videos/att.970gtKVesR1xjUGCgzqflV2OWC8aKJ6eQjcG_yd52OY.jpg" alt="Bathrooms">
+      <span class="cat-tile-info"><b>Bathrooms</b><em>14 projects &middot; View &rarr;</em></span>
+    </button>
+    <button type="button" class="cat-tile reveal-up delay-2" data-cat="interiors">
+      <img src="photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg" alt="Interiors &amp; Flooring">
+      <span class="cat-tile-info"><b>Interiors &amp; Flooring</b><em>5 projects &middot; View &rarr;</em></span>
+    </button>
+    <button type="button" class="cat-tile reveal-up delay-3" data-cat="exterior">
+      <img src="photos/thumbs/att.TTFdmFK19BSoTxBfkV49qam3r7C5KfbSv2dphpbWmT8.jpg" alt="Exterior &amp; Additions">
+      <span class="cat-tile-info"><b>Exterior &amp; Additions</b><em>2 projects &middot; View &rarr;</em></span>
+    </button>
+  </section>
 
   <!-- The Full Modern Gallery Grid -->
-  <section class="gallery-section">
+  <section class="gallery-section" id="gallery-section">
+    <div class="gallery-toolbar">
+      <button type="button" class="gallery-back" id="gallery-back">&larr; All Categories</button>
+      <div class="gallery-heading"><h2 id="gallery-title"></h2><span id="gallery-count"></span></div>
+    </div>
     <div class="gallery-grid" id="gallery-grid">
     <button type="button" class="gallery-card reveal-up" data-category="kitchens" data-index="0" data-type="video" data-media="videos/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.mp4" data-poster="photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg" data-title="Luxury Kitchen Island & Custom Cabinetry" data-catname="Kitchens" aria-label="Luxury Kitchen Island & Custom Cabinetry">
       <img src="photos/thumbs/att.7Dz5lQcCSd0ddTf9VZRopP9xWM-3Atp0FnmpK_3CeE8.jpg" alt="Luxury Kitchen Island & Custom Cabinetry" loading="lazy">
@@ -422,6 +425,6 @@
   <div class="soc"><i style="background:#000">IG</i><i style="background:#3b5998">f</i><i style="background:#6b6b6b">G</i></div>
 </footer>
 
-<script src="main.js?v=3.5"></script>
+<script src="main.js?v=4.2"></script>
 </body>
 </html>

@@ -177,52 +177,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (galleryGrid) {
-      const filterTabs = document.querySelectorAll('.filter-tab');
       const allCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
       let activeCards = allCards.slice();
       let currentLightboxIndex = 0;
 
-      function setFilter(category) {
-        filterTabs.forEach((tab) => {
-          const isActive = tab.getAttribute('data-filter') === category;
-          tab.classList.toggle('active', isActive);
-          tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        });
+      const catTiles = document.getElementById('cat-tiles');
+      const gallerySection = document.getElementById('gallery-section');
+      const galleryTitle = document.getElementById('gallery-title');
+      const galleryCount = document.getElementById('gallery-count');
+      const backBtn = document.getElementById('gallery-back');
+      const catNames = {
+        kitchens: 'Kitchens',
+        bathrooms: 'Bathrooms',
+        interiors: 'Interiors & Flooring',
+        exterior: 'Exterior & Additions'
+      };
 
+      // category = 'all' shows the big squares; anything else shows that category's gallery
+      function setFilter(category) {
+        const inGallery = !!catNames[category];
         activeCards = [];
         allCards.forEach((card) => {
-          const cardCat = card.getAttribute('data-category');
-          if (category === 'all' || cardCat === category) {
-            card.classList.remove('is-hidden');
-            activeCards.push(card);
-          } else {
-            card.classList.add('is-hidden');
-          }
+          const match = inGallery && card.getAttribute('data-category') === category;
+          card.classList.toggle('is-hidden', !match);
+          if (match) activeCards.push(card);
         });
+
+        if (catTiles) catTiles.classList.toggle('is-hidden', inGallery);
+        if (gallerySection) gallerySection.classList.toggle('is-open', inGallery);
+        if (inGallery) {
+          if (galleryTitle) galleryTitle.textContent = catNames[category];
+          if (galleryCount) galleryCount.textContent = activeCards.length + (activeCards.length === 1 ? ' project' : ' projects');
+        }
+
+        try {
+          const url = new URL(window.location);
+          if (inGallery) url.searchParams.set('cat', category);
+          else url.searchParams.delete('cat');
+          window.history.replaceState({}, '', url);
+        } catch (e) {}
       }
 
-      filterTabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-          const filter = tab.getAttribute('data-filter') || 'all';
-          setFilter(filter);
-          try {
-            const url = new URL(window.location);
-            if (filter === 'all') {
-              url.searchParams.delete('cat');
-            } else {
-              url.searchParams.set('cat', filter);
-            }
-            window.history.replaceState({}, '', url);
-          } catch (e) {}
+      document.querySelectorAll('.cat-tile').forEach((tile) => {
+        tile.addEventListener('click', () => {
+          setFilter(tile.getAttribute('data-cat'));
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       });
 
-      // Check URL parameters for pre-selected category (e.g. ?cat=bathrooms)
-      const urlParams = new URLSearchParams(window.location.search);
-      const initialCat = urlParams.get('cat');
-      if (initialCat && ['kitchens', 'bathrooms', 'interiors', 'exterior'].includes(initialCat.toLowerCase())) {
-        setFilter(initialCat.toLowerCase());
+      if (backBtn) {
+        backBtn.addEventListener('click', () => {
+          setFilter('all');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
       }
+
+      // Pre-select a category from the URL (e.g. ?cat=bathrooms from the homepage)
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialCat = (urlParams.get('cat') || '').toLowerCase();
+      setFilter(catNames[initialCat] ? initialCat : 'all');
 
       function updateLightbox(index) {
         if (!activeCards.length) return;
