@@ -2180,17 +2180,12 @@ footer small {
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
-  filter: brightness(0.68) contrast(1.08);
+  filter: none !important;
   transform: scale(1.05);
 }
 
 .parallax-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(11, 17, 32, 0.42) 0%, rgba(11, 17, 32, 0.88) 100%),
-              linear-gradient(180deg, rgba(11, 17, 32, 0.85) 0%, transparent 35%, transparent 65%, rgba(11, 17, 32, 0.9) 100%);
-  z-index: 2;
-  pointer-events: none;
+  display: none !important;
 }
 
 .parallax-content {
