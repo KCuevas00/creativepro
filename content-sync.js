@@ -112,6 +112,7 @@
       craftsman: "Master Craftsman",
       phone: "(847) 624-1501",
       phoneRaw: "8476241501",
+      email: "creativeproremodel@gmail.com",
       locationText: "Elgin, IL & Surrounding Chicagoland Suburbs",
       copyright: "© 2026 Creative Pro Remodeling LLC. All rights reserved."
     },
@@ -140,6 +141,10 @@
     services: {
       pageTitle: "Our Remodeling Services",
       pageSubtitle: "From luxury kitchen and bathroom transformations to complete basement suites and home additions, we handle your project with master-level precision."
+    },
+    contact: {
+      pageTitle: "Get In Touch With Creative Pro",
+      pageSubtitle: "Direct master craftsman communication from day one. Reach out for a free on-site consultation, project scope discussion, or preliminary estimate."
     },
     portfolio: {
       pageTitle: "Project Gallery",
