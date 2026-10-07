@@ -11,8 +11,8 @@
 
   const STORAGE_KEY = 'cpr_content_v6';
   const AUTH_KEY = 'cpr_admin_auth';
-  // SHA-256 cryptographic hash of master password ('creativepro2026')
-  const PASS_HASH = 'ed0151dd312e16b9c116f8d4d7841eeb03131ab30e33ba34c3e1fbb79b7fdf3c';
+  // SHA-256 cryptographic hash of master password ('cough2718artist')
+  const PASS_HASH = '6df5d7e6fe4595d85ac066696066d0761cad1c55da3a10e8a691ce3b739bc256';
 
   const LEGACY_PATH_MAP = {
     'videos/att.KTTjtNAtQ304b6EBsn0ZfpWx3SeXYvGI1veDeXCvkAE.mp4': 'videos/bathroom-01.mp4',
