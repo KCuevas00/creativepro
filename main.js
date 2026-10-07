@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bathrooms: 'Bathrooms',
         interiors: 'Interiors & Flooring',
         exterior: 'Exterior & Additions',
+        rendering: '3D Design & Rendering',
         'view-all': 'All Projects'
       };
 
