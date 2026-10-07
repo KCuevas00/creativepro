@@ -904,23 +904,49 @@
 
     // Discreet Admin Portal link in footer: ensure strictly only 1 exists
     if (!isInIframe) {
-      const allLinks = document.querySelectorAll('.footer-admin, #cpr-admin-footer-link');
+      // Remove any deprecated .footer-admin wrappers
+      document.querySelectorAll('.footer-admin').forEach((el) => {
+        if (!el.querySelector('#cpr-admin-footer-link')) {
+          el.remove();
+        }
+      });
+
+      const allLinks = document.querySelectorAll('#cpr-admin-footer-link, .footer-admin-link');
       if (allLinks.length > 1) {
         // If more than one exists, keep only the first one and remove extras
         for (let i = 1; i < allLinks.length; i++) {
           allLinks[i].remove();
         }
       } else if (allLinks.length === 0) {
-        const footerInfo = document.querySelector('footer .footer-info') || document.querySelector('footer');
-        if (footerInfo) {
-          const link = document.createElement('p');
-          link.className = 'footer-admin';
-          link.innerHTML = `<a id="cpr-admin-footer-link" href="admin.html" class="footer-admin-link">🔒 Admin Portal</a>`;
-          footerInfo.appendChild(link);
+        const footerBottom = document.querySelector('footer .footer-bottom');
+        if (footerBottom) {
+          const link = document.createElement('a');
+          link.id = 'cpr-admin-footer-link';
+          link.href = 'admin.html';
+          link.className = 'footer-admin-link';
+          link.setAttribute('aria-label', 'Admin Portal');
+          link.textContent = '🔒 Admin Portal';
+          footerBottom.appendChild(link);
+        } else {
+          const footer = document.querySelector('footer');
+          if (footer) {
+            const bottomWrap = document.createElement('div');
+            bottomWrap.className = 'footer-bottom';
+            const small = footer.querySelector('small');
+            if (small) bottomWrap.appendChild(small);
+            const link = document.createElement('a');
+            link.id = 'cpr-admin-footer-link';
+            link.href = 'admin.html';
+            link.className = 'footer-admin-link';
+            link.setAttribute('aria-label', 'Admin Portal');
+            link.textContent = '🔒 Admin Portal';
+            bottomWrap.appendChild(link);
+            footer.appendChild(bottomWrap);
+          }
         }
       }
     } else {
-      document.querySelectorAll('.footer-admin, #cpr-admin-footer-link').forEach((el) => {
+      document.querySelectorAll('.footer-admin, #cpr-admin-footer-link, .footer-admin-link').forEach((el) => {
         el.style.display = 'none';
       });
     }

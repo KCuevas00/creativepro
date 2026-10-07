@@ -1454,8 +1454,8 @@ footer small {
 }
 
 .portfolio-breadcrumbs {
-  font-size: 12px;
-  color: #94a3b8;
+  font-size: 13px;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1463,17 +1463,25 @@ footer small {
 }
 
 .portfolio-breadcrumbs a {
-  color: var(--navy);
-  text-decoration: none;
-  font-weight: 600;
+  color: #0f172a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+  transition: color 0.2s ease;
 }
 
 .portfolio-breadcrumbs a:hover {
   color: var(--gold);
 }
 
-.portfolio-breadcrumbs span {
-  opacity: 0.6;
+.portfolio-breadcrumbs .breadcrumb-sep {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.portfolio-breadcrumbs .breadcrumb-current {
+  color: #0f172a;
+  font-weight: 700;
 }
 
 /* Category Filter Tabs (Modern Web Gallery Style) */
@@ -2494,23 +2502,48 @@ footer small {
 @media(max-width:768px){.gallery-card-title{font-size:12px}}
 @media(max-width:600px){.cat-tiles{grid-template-columns:repeat(2,1fr);gap:12px;padding:0 12px}.cat-tile:last-child:nth-child(odd){grid-column:1/-1;aspect-ratio:16/9}.cat-tile-info{padding:16px 10px}.cat-tile-info em{font-size:10px}.gallery-toolbar{flex-direction:column;align-items:flex-start;gap:10px}}
 
-/* Discreet Footer Admin Portal Link */
-.footer-admin {
-  margin-top: 10px;
-  font-size: 11.5px;
-}
-.footer-admin-link {
-  color: var(--silver-dark);
-  text-decoration: none;
-  font-weight: 500;
-  opacity: 0.6;
-  letter-spacing: 0.5px;
-  display: inline-flex;
+/* Footer Bottom & Far-Right Subtle Admin Portal Link */
+.footer-bottom {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease;
+  justify-content: center;
+  padding: 0 16px;
 }
+
+.footer-bottom small {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0 auto;
+}
+
+.footer-admin-link {
+  position: absolute;
+  right: 16px;
+  font-size: 10px;
+  color: #334155;
+  text-decoration: none;
+  opacity: 0.35;
+  letter-spacing: 0.4px;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
 .footer-admin-link:hover {
-  opacity: 1;
-  color: var(--gold-bright);
+  opacity: 0.9;
+  color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .footer-admin-link {
+    position: static;
+    font-size: 9.5px;
+    align-self: flex-end;
+    margin-right: 8px;
+  }
 }
