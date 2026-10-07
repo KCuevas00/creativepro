@@ -4,7 +4,7 @@
  */
 
 (function () {
-  const STORAGE_KEY = 'cpr_content_v5';
+  const STORAGE_KEY = 'cpr_content_v6';
   const isInIframe = window.self !== window.top;
   const isEditorActive = isInIframe;
 
@@ -864,7 +864,7 @@
 
     // 1. Purge legacy poisoned caches containing obsolete att.* paths
     try {
-      ['cpr_content', 'cpr_content_v2', 'cpr_content_v3', 'cpr_content_v4', 'cpr_content_v5'].forEach((k) => {
+      ['cpr_content', 'cpr_content_v2', 'cpr_content_v3', 'cpr_content_v4', 'cpr_content_v5', 'cpr_content_v6'].forEach((k) => {
         const val = localStorage.getItem(k);
         if (val && val.includes('att.')) {
           localStorage.removeItem(k);

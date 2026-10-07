@@ -209,30 +209,14 @@
       },
       {
         "id": "p21",
-        "category": "rendering",
+        "category": "bathrooms",
         "type": "image",
         "media": "photos/bathroom-photo-04.jpg",
         "poster": "photos/thumbs/bathroom-photo-04.jpg",
-        "catName": "3D Design & Rendering"
+        "catName": "Bathrooms"
       },
       {
         "id": "p22",
-        "category": "rendering",
-        "type": "image",
-        "media": "photos/bathroom-photo-05.jpg",
-        "poster": "photos/thumbs/bathroom-photo-05.jpg",
-        "catName": "3D Design & Rendering"
-      },
-      {
-        "id": "p23",
-        "category": "rendering",
-        "type": "image",
-        "media": "photos/bathroom-photo-06.jpg",
-        "poster": "photos/thumbs/bathroom-photo-06.jpg",
-        "catName": "3D Design & Rendering"
-      },
-      {
-        "id": "p24",
         "category": "rendering",
         "type": "image",
         "media": "photos/bathroom-design-01.jpg",
@@ -240,7 +224,7 @@
         "catName": "3D Design & Rendering"
       },
       {
-        "id": "p25",
+        "id": "p23",
         "category": "rendering",
         "type": "image",
         "media": "photos/bathroom-design-02.jpg",
@@ -248,11 +232,27 @@
         "catName": "3D Design & Rendering"
       },
       {
-        "id": "p26",
+        "id": "p24",
         "category": "rendering",
         "type": "image",
         "media": "photos/bathroom-design-03.jpg",
         "poster": "photos/thumbs/bathroom-design-03.jpg",
+        "catName": "3D Design & Rendering"
+      },
+      {
+        "id": "p25",
+        "category": "rendering",
+        "type": "image",
+        "media": "photos/bathroom-design-04.jpg",
+        "poster": "photos/thumbs/bathroom-design-04.jpg",
+        "catName": "3D Design & Rendering"
+      },
+      {
+        "id": "p26",
+        "category": "rendering",
+        "type": "image",
+        "media": "photos/bathroom-design-05.jpg",
+        "poster": "photos/thumbs/bathroom-design-05.jpg",
         "catName": "3D Design & Rendering"
       },
       {

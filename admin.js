@@ -9,7 +9,7 @@
     window.top.location.href = window.self.location.href;
   }
 
-  const STORAGE_KEY = 'cpr_content_v5';
+  const STORAGE_KEY = 'cpr_content_v6';
   const AUTH_KEY = 'cpr_admin_auth';
   // SHA-256 cryptographic hash of master password ('creativepro2026')
   const PASS_HASH = 'ed0151dd312e16b9c116f8d4d7841eeb03131ab30e33ba34c3e1fbb79b7fdf3c';
@@ -211,7 +211,7 @@
   async function initContent() {
     let saved = null;
     try {
-      ['cpr_content', 'cpr_content_v2', 'cpr_content_v3', 'cpr_content_v4', 'cpr_content_v5'].forEach((k) => {
+      ['cpr_content', 'cpr_content_v2', 'cpr_content_v3', 'cpr_content_v4', 'cpr_content_v5', 'cpr_content_v6'].forEach((k) => {
         const val = localStorage.getItem(k);
         if (val && val.includes('att.')) {
           localStorage.removeItem(k);
