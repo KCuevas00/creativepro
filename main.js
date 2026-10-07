@@ -190,18 +190,43 @@ document.addEventListener('DOMContentLoaded', () => {
         kitchens: 'Kitchens',
         bathrooms: 'Bathrooms',
         interiors: 'Interiors & Flooring',
-        exterior: 'Exterior & Additions'
+        exterior: 'Exterior & Additions',
+        'view-all': 'All Projects'
       };
+
+      let currentFilterCategory = 'all';
+
+      function updateCatTileCounts() {
+        const counts = {};
+        const currentCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
+        currentCards.forEach((card) => {
+          const cat = (card.getAttribute('data-category') || '').toLowerCase();
+          counts[cat] = (counts[cat] || 0) + 1;
+        });
+        document.querySelectorAll('.cat-tile[data-cat]').forEach((tile) => {
+          const cat = (tile.getAttribute('data-cat') || '').toLowerCase();
+          const count = counts[cat] || 0;
+          const em = tile.querySelector('.cat-tile-info em');
+          if (em) {
+            em.innerHTML = `${count} ${count === 1 ? 'project' : 'projects'} &middot; View &rarr;`;
+          }
+        });
+      }
 
       // category = 'all' shows the big squares; anything else shows that category's gallery
       function setFilter(category) {
+        currentFilterCategory = category || 'all';
         const inGallery = !!catNames[category];
+        const showAll = category === 'view-all';
+        const currentCards = Array.from(galleryGrid.querySelectorAll('.gallery-card'));
         activeCards = [];
-        allCards.forEach((card) => {
-          const match = inGallery && card.getAttribute('data-category') === category;
+        currentCards.forEach((card) => {
+          const match = inGallery && (showAll || card.getAttribute('data-category') === category);
           card.classList.toggle('is-hidden', !match);
           if (match) activeCards.push(card);
         });
+
+        updateCatTileCounts();
 
         if (catTiles) catTiles.classList.toggle('is-hidden', inGallery);
         if (gallerySection) gallerySection.classList.toggle('is-open', inGallery);
@@ -212,11 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
           const url = new URL(window.location);
-          if (inGallery) url.searchParams.set('cat', category);
+          if (inGallery && !showAll) url.searchParams.set('cat', category);
+          else if (showAll) url.searchParams.set('cat', 'view-all');
           else url.searchParams.delete('cat');
           window.history.replaceState({}, '', url);
         } catch (e) {}
       }
+
+      window.cprSetGalleryFilter = setFilter;
+      window.cprRefreshGalleryFilter = () => setFilter(currentFilterCategory);
+      window.cprUpdateCatTileCounts = updateCatTileCounts;
 
       document.querySelectorAll('.cat-tile').forEach((tile) => {
         tile.addEventListener('click', () => {
@@ -235,7 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Pre-select a category from the URL (e.g. ?cat=bathrooms from the homepage)
       const urlParams = new URLSearchParams(window.location.search);
       const initialCat = (urlParams.get('cat') || '').toLowerCase();
-      setFilter(catNames[initialCat] ? initialCat : 'all');
+      if (window.CPR_ADMIN_ACTIVE) {
+        setFilter(catNames[initialCat] ? initialCat : 'view-all');
+      } else {
+        setFilter(catNames[initialCat] ? initialCat : 'all');
+      }
 
       function updateLightbox(index) {
         if (!activeCards.length) return;
@@ -277,8 +311,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
 
-          if (lightboxCaption) lightboxCaption.textContent = title;
-          if (lightboxCat) lightboxCat.textContent = catName;
+          if (lightboxCaption) {
+            lightboxCaption.textContent = title;
+            lightboxCaption.style.display = title ? 'block' : 'none';
+          }
+          if (lightboxCat) {
+            lightboxCat.textContent = catName;
+            lightboxCat.style.display = catName ? 'inline-block' : 'none';
+          }
           if (lightboxCounter) {
             lightboxCounter.textContent = `${currentLightboxIndex + 1} of ${activeCards.length}`;
           }
@@ -310,13 +350,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightbox(currentLightboxIndex + 1);
       }
 
-      allCards.forEach((card) => {
-        card.addEventListener('click', () => {
-          const indexInActive = activeCards.indexOf(card);
-          if (indexInActive !== -1) {
-            openLightbox(indexInActive);
-          }
-        });
+      galleryGrid.addEventListener('click', (e) => {
+        const card = e.target.closest('.gallery-card');
+        if (!card) return;
+        // If clicked on admin toolbar button inside card, don't trigger lightbox
+        if (e.target.closest('.cpr-photo-toolbar-top')) return;
+        
+        const currentActive = Array.from(galleryGrid.querySelectorAll('.gallery-card:not(.is-hidden)'));
+        const indexInActive = currentActive.indexOf(card);
+        if (indexInActive !== -1) {
+          activeCards = currentActive;
+          openLightbox(indexInActive);
+        }
       });
 
       closeBtn?.addEventListener('click', closeLightbox);
@@ -411,13 +456,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideTimer = null;
 
     const showSlide = (index) => {
-      heroSlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      heroDots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
+      if (index === currentSlide) return;
+      const prevIndex = currentSlide;
       currentSlide = index;
+
+      heroSlides.forEach((slide, i) => {
+        if (i === prevIndex) {
+          slide.classList.remove('active');
+          slide.classList.add('prev');
+        } else if (i === currentSlide) {
+          slide.classList.remove('prev');
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active', 'prev');
+        }
+      });
+
+      heroDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
     };
 
     const nextSlide = () => {

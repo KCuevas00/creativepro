@@ -305,17 +305,26 @@ body.has-fixed-nav {
   width: 100%;
   height: 100%;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 7s cubic-bezier(0.1, 0, 0.2, 1);
-  transform: scale(1.04);
+  transform: scale(1.03);
   z-index: 1;
+  pointer-events: none;
+  will-change: opacity, transform;
 }
 
+/* Previous slide stays 100% solid & visible underneath while incoming slide fades in */
+.hero-slide.prev {
+  opacity: 1;
+  transform: scale(1.06);
+  z-index: 2;
+  transition: none;
+}
+
+/* Incoming active slide fades smoothly into view on top of previous slide - ZERO black frame */
 .hero-slide.active {
   opacity: 1;
-  visibility: visible;
-  transform: scale(1.08);
-  z-index: 2;
+  transform: scale(1.06);
+  z-index: 3;
+  transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1), transform 8s cubic-bezier(0.1, 0, 0.2, 1);
 }
 
 .hero-desktop-img {
@@ -664,7 +673,7 @@ h2 {
 .testi {
   position: relative;
   height: 380px;
-  background: url('photos/thumbs/att.GlD22ty3iYeMkHM0jeJJ-i3D_5D5A8P2i-yUYWIc48s.jpg') center/cover no-repeat;
+  background: url('photos/thumbs/interiors-01.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1865,6 +1874,25 @@ footer small {
   flex-wrap: wrap;
 }
 
+.gallery-cta-actions .btn:not(.o) {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #b45309 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.45) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  padding: 13px 30px !important;
+  font-size: 12.5px !important;
+  text-transform: uppercase !important;
+}
+
+.gallery-cta-actions .btn:not(.o):hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 28px rgba(245, 158, 11, 0.65) !important;
+  transform: translateY(-2px) !important;
+}
+
 /* Legacy/Fallback Portfolio Grid styles */
 .portfolio-grid {
   display: grid;
@@ -2465,3 +2493,24 @@ footer small {
 @media(min-width:769px){.gallery-grid{grid-template-columns:repeat(3,1fr);gap:20px}}
 @media(max-width:768px){.gallery-card-title{font-size:12px}}
 @media(max-width:600px){.cat-tiles{gap:12px;padding:0 12px}.cat-tile-info{padding:16px 10px}.cat-tile-info em{font-size:10px}.gallery-toolbar{flex-direction:column;align-items:flex-start;gap:10px}}
+
+/* Discreet Footer Admin Portal Link */
+.footer-admin {
+  margin-top: 10px;
+  font-size: 11.5px;
+}
+.footer-admin-link {
+  color: var(--silver-dark);
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+.footer-admin-link:hover {
+  opacity: 1;
+  color: var(--gold-bright);
+}

@@ -1,0 +1,340 @@
+{
+  "global": {
+    "brandName": "CREATIVE PRO REMODELING LLC",
+    "craftsman": "Master Craftsman",
+    "phone": "(847) 624-1501",
+    "phoneRaw": "8476241501",
+    "locationText": "Elgin, IL & Surrounding Chicagoland Suburbs",
+    "copyright": "© 2026 Creative Pro Remodeling LLC. All rights reserved.",
+    "instagramUrl": "https://www.instagram.com",
+    "facebookUrl": "https://www.facebook.com"
+  },
+  "home": {
+    "heroHeadline": "Custom Remodeling. Expertly Crafted.",
+    "heroCtaText": "Call (847) 624-1501",
+    "stat1Num": "15+",
+    "stat1Label": "Years Master Experience",
+    "stat2Num": "100%",
+    "stat2Label": "Owner On-Site Oversight",
+    "stat3Num": "5★",
+    "stat3Label": "Chicagoland Craftsmanship",
+    "stat4Num": "Free",
+    "stat4Label": "On-Site Consultations",
+    "ctaTitle": "Ready to build your dream space?",
+    "ctaDesc": "Work directly with our master craftsmen. Honest timelines, transparent pricing, and master-level execution."
+  },
+  "about": {
+    "pageTitle": "About Creative Pro Remodeling LLC",
+    "pageSubtitle": "Decades of hands-on mastery, direct craftsman oversight, and a personal commitment to treating your home as if it were our own.",
+    "craftsmanEyebrow": "The Master Craftsman",
+    "craftsmanName": "Master Craftsmanship",
+    "craftsmanBio1": "Creative Pro Remodeling LLC was founded on a simple, uncompromising principle: delivering high-end remodeling without the communication gaps, shortcuts, or stress typical of large contractor firms.",
+    "craftsmanBio2": "Led personally by experienced master craftsmen, our team brings decades of field-tested carpentry, precision tile setting, plumbing, electrical, and structural finish expertise directly to your home. When you hire Creative Pro, you work directly with our lead craftsmen from Day 1 through final inspection."
+  },
+  "services": {
+    "pageTitle": "Our Remodeling Services",
+    "pageSubtitle": "From luxury kitchen and bathroom transformations to complete basement suites and home additions, we handle your project with master-level precision."
+  },
+  "portfolio": {
+    "pageTitle": "Project Gallery",
+    "pageSubtitle": "Browse our complete showcase of custom kitchens, luxury bathroom transformations, interior living spaces, and exterior additions across Elgin, IL and the surrounding Chicagoland area.",
+    "items": [
+      {
+        "id": "p0",
+        "category": "kitchens",
+        "type": "video",
+        "media": "videos/kitchen-01.mp4",
+        "poster": "photos/thumbs/kitchen-01.jpg",
+        "catName": "Kitchens"
+      },
+      {
+        "id": "p1",
+        "category": "kitchens",
+        "type": "video",
+        "media": "videos/kitchen-02.mp4",
+        "poster": "photos/thumbs/kitchen-02.jpg",
+        "catName": "Kitchens"
+      },
+      {
+        "id": "p2",
+        "category": "kitchens",
+        "type": "video",
+        "media": "videos/kitchen-03.mp4",
+        "poster": "photos/thumbs/kitchen-03.jpg",
+        "catName": "Kitchens"
+      },
+      {
+        "id": "p3",
+        "category": "kitchens",
+        "type": "video",
+        "media": "videos/kitchen-04.mp4",
+        "poster": "photos/thumbs/kitchen-04.jpg",
+        "catName": "Kitchens"
+      },
+      {
+        "id": "p4",
+        "category": "kitchens",
+        "type": "video",
+        "media": "videos/kitchen-05.mp4",
+        "poster": "photos/thumbs/kitchen-05.jpg",
+        "catName": "Kitchens"
+      },
+      {
+        "id": "p5",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-photo-01.jpg",
+        "poster": "photos/thumbs/bathroom-photo-01.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p6",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-01.mp4",
+        "poster": "photos/thumbs/bathroom-01.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p7",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-02.mp4",
+        "poster": "photos/thumbs/bathroom-02.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p8",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-photo-02.jpg",
+        "poster": "photos/thumbs/bathroom-photo-02.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p9",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-photo-03.jpg",
+        "poster": "photos/thumbs/bathroom-photo-03.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p10",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-03.mp4",
+        "poster": "photos/thumbs/bathroom-03.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p11",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-04.mp4",
+        "poster": "photos/thumbs/bathroom-04.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p12",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-05.mp4",
+        "poster": "photos/thumbs/bathroom-05.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p13",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-06.mp4",
+        "poster": "photos/thumbs/bathroom-06.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p14",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-07.mp4",
+        "poster": "photos/thumbs/bathroom-07.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p15",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-08.mp4",
+        "poster": "photos/thumbs/bathroom-08.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p16",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-09.mp4",
+        "poster": "photos/thumbs/bathroom-09.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p17",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-10.mp4",
+        "poster": "photos/thumbs/bathroom-10.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p18",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-11.mp4",
+        "poster": "photos/thumbs/bathroom-11.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p19",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-12.mp4",
+        "poster": "photos/thumbs/bathroom-12.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p20",
+        "category": "bathrooms",
+        "type": "video",
+        "media": "videos/bathroom-13.mp4",
+        "poster": "photos/thumbs/bathroom-13.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p21",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-photo-04.jpg",
+        "poster": "photos/thumbs/bathroom-photo-04.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p22",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-photo-05.jpg",
+        "poster": "photos/thumbs/bathroom-photo-05.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p23",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-photo-06.jpg",
+        "poster": "photos/thumbs/bathroom-photo-06.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p24",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-design-01.jpg",
+        "poster": "photos/thumbs/bathroom-design-01.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p25",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-design-02.jpg",
+        "poster": "photos/thumbs/bathroom-design-02.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p26",
+        "category": "bathrooms",
+        "type": "image",
+        "media": "photos/bathroom-design-03.jpg",
+        "poster": "photos/thumbs/bathroom-design-03.jpg",
+        "catName": "Bathrooms"
+      },
+      {
+        "id": "p27",
+        "category": "interiors",
+        "type": "image",
+        "media": "photos/interiors-photo-01.jpg",
+        "poster": "photos/thumbs/interiors-photo-01.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p28",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-01.mp4",
+        "poster": "photos/thumbs/interiors-01.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p29",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-02.mp4",
+        "poster": "photos/thumbs/interiors-02.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p30",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-03.mp4",
+        "poster": "photos/thumbs/interiors-03.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p31",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-04.mp4",
+        "poster": "photos/thumbs/interiors-04.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p32",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-05.mp4",
+        "poster": "photos/thumbs/interiors-05.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p33",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-06.mp4",
+        "poster": "photos/thumbs/interiors-06.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p34",
+        "category": "interiors",
+        "type": "video",
+        "media": "videos/interiors-07.mp4",
+        "poster": "photos/thumbs/interiors-07.jpg",
+        "catName": "Interiors & Flooring"
+      },
+      {
+        "id": "p35",
+        "category": "exterior",
+        "type": "video",
+        "media": "videos/exterior-01.mp4",
+        "poster": "photos/thumbs/exterior-01.jpg",
+        "catName": "Exterior & Additions"
+      },
+      {
+        "id": "p36",
+        "category": "exterior",
+        "type": "video",
+        "media": "videos/exterior-02.mp4",
+        "poster": "photos/thumbs/exterior-02.jpg",
+        "catName": "Exterior & Additions"
+      }
+    ]
+  }
+}
