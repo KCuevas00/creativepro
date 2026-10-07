@@ -396,21 +396,25 @@
         </span>
       `;
 
-      // In admin mode, inject floating card toolbar AT THE TOP
+      // In admin mode, inject floating card toolbars (Delete in top-right, Shift in bottom-left)
       if (isEditorActive) {
         const toolbar = document.createElement('div');
-        toolbar.className = 'cpr-photo-toolbar-top';
+        toolbar.className = 'cpr-card-admin-overlay';
         toolbar.innerHTML = `
-          <button type="button" class="cpr-tb-btn cpr-btn-swap" title="Cambiar foto o video">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            <span>Cambiar</span>
-          </button>
-          <div class="cpr-tb-group">
-            <button type="button" class="cpr-tb-btn cpr-btn-left" title="Mover a la izquierda" ${idx === 0 ? 'disabled' : ''}>◀</button>
-            <button type="button" class="cpr-tb-btn cpr-btn-right" title="Mover a la derecha" ${idx === items.length - 1 ? 'disabled' : ''}>▶</button>
-            <button type="button" class="cpr-tb-btn cpr-btn-delete" title="Eliminar de la galería">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+          <div class="cpr-photo-toolbar-top">
+            <button type="button" class="cpr-tb-btn cpr-btn-swap" title="Cambiar foto o video" aria-label="Cambiar foto o video">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Cambiar</span>
             </button>
+            <button type="button" class="cpr-tb-btn cpr-btn-delete" title="Eliminar de la galería" aria-label="Eliminar foto o video">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+            </button>
+          </div>
+          <div class="cpr-photo-toolbar-bottom">
+            <div class="cpr-tb-group cpr-shift-group">
+              <button type="button" class="cpr-tb-btn cpr-btn-left" title="Mover a la izquierda" aria-label="Mover a la izquierda" ${idx === 0 ? 'disabled' : ''}>◀</button>
+              <button type="button" class="cpr-tb-btn cpr-btn-right" title="Mover a la derecha" aria-label="Mover a la derecha" ${idx === items.length - 1 ? 'disabled' : ''}>▶</button>
+            </div>
           </div>
         `;
 
@@ -571,9 +575,10 @@
           box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4) !important;
         }
 
-        /* Gallery Card Admin Toolbar */
+        /* Gallery Card Admin Toolbar & Separate Corner Controls */
         .cpr-editable-card {
           position: relative !important;
+          overflow: hidden !important;
         }
         .cpr-editable-card.cpr-dragging {
           opacity: 0.35 !important;
@@ -583,58 +588,106 @@
           transform: scale(1.04) !important;
           box-shadow: 0 0 20px rgba(245, 158, 11, 0.7) !important;
         }
-        .cpr-photo-toolbar-top {
+        .cpr-card-admin-overlay {
           position: absolute !important;
-          top: 8px !important;
-          left: 8px !important;
-          right: 8px !important;
+          inset: 0 !important;
+          pointer-events: none !important;
+          z-index: 25 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          padding: 8px !important;
+          box-sizing: border-box !important;
+        }
+        .cpr-photo-toolbar-top {
           display: flex !important;
           align-items: center !important;
           justify-content: space-between !important;
-          background: rgba(11, 15, 25, 0.95) !important;
-          border: 1px solid #f59e0b !important;
-          border-radius: 6px !important;
-          padding: 5px 8px !important;
-          z-index: 99 !important;
+          width: 100% !important;
+          gap: 6px !important;
           pointer-events: auto !important;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.8) !important;
+        }
+        .cpr-photo-toolbar-bottom {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          width: 100% !important;
+          pointer-events: auto !important;
         }
         .cpr-tb-btn {
-          background: #1e293b !important;
-          border: 1px solid rgba(226, 232, 240, 0.2) !important;
-          color: #ffffff !important;
           font-family: 'Montserrat', sans-serif !important;
           font-size: 0.74rem !important;
           font-weight: 700 !important;
-          padding: 5px 9px !important;
-          border-radius: 4px !important;
+          border-radius: 5px !important;
           cursor: pointer !important;
           display: inline-flex !important;
           align-items: center !important;
+          justify-content: center !important;
           gap: 4px !important;
           transition: all 0.15s !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.7) !important;
         }
-        .cpr-tb-btn:hover:not(:disabled) {
+        .cpr-btn-swap {
+          background: rgba(11, 15, 25, 0.95) !important;
+          border: 1px solid #f59e0b !important;
+          color: #ffffff !important;
+          padding: 5px 9px !important;
+          min-height: 32px !important;
+        }
+        .cpr-btn-swap:hover,
+        .cpr-btn-swap:active {
+          background: #f59e0b !important;
+          color: #0b1120 !important;
+        }
+        .cpr-btn-delete {
+          background: #ef4444 !important;
+          border: 1.5px solid #dc2626 !important;
+          color: #ffffff !important;
+          min-width: 36px !important;
+          min-height: 32px !important;
+          padding: 5px 9px !important;
+          border-radius: 6px !important;
+          box-shadow: 0 4px 14px rgba(239, 68, 68, 0.6) !important;
+        }
+        .cpr-btn-delete:hover,
+        .cpr-btn-delete:active {
+          background: #dc2626 !important;
+          transform: scale(1.08) !important;
+          color: #ffffff !important;
+        }
+        .cpr-shift-group {
+          display: flex !important;
+          align-items: center !important;
+          gap: 3px !important;
+          background: rgba(11, 15, 25, 0.92) !important;
+          padding: 3px 4px !important;
+          border-radius: 6px !important;
+          border: 1px solid rgba(245, 158, 11, 0.5) !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.7) !important;
+        }
+        .cpr-btn-left,
+        .cpr-btn-right {
+          background: #1e293b !important;
+          border: 1px solid rgba(226, 232, 240, 0.25) !important;
+          color: #ffffff !important;
+          font-size: 0.85rem !important;
+          min-width: 32px !important;
+          min-height: 28px !important;
+          padding: 3px 7px !important;
+          border-radius: 4px !important;
+        }
+        .cpr-btn-left:hover:not(:disabled),
+        .cpr-btn-right:hover:not(:disabled),
+        .cpr-btn-left:active:not(:disabled),
+        .cpr-btn-right:active:not(:disabled) {
           background: #f59e0b !important;
           color: #0b1120 !important;
           border-color: #f59e0b !important;
         }
-        .cpr-tb-btn:disabled {
-          opacity: 0.3 !important;
+        .cpr-btn-left:disabled,
+        .cpr-btn-right:disabled {
+          opacity: 0.25 !important;
           cursor: not-allowed !important;
-        }
-        .cpr-btn-delete {
-          background: rgba(239, 68, 68, 0.25) !important;
-          border-color: #ef4444 !important;
-          color: #fca5a5 !important;
-        }
-        .cpr-btn-delete:hover {
-          background: #ef4444 !important;
-          color: #fff !important;
-        }
-        .cpr-tb-group {
-          display: flex !important;
-          gap: 4px !important;
         }
 
         /* Prevent recursive nesting inside editor frame */
