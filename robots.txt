@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin.css
+Disallow: /admin.js
+Disallow: /content.json
+Disallow: /wrangler.jsonc
+
+Sitemap: sitemap.xml
